@@ -109,17 +109,25 @@
                                                     $isGone = $appointmentDateTime->lessThan(Carbon\Carbon::now('Asia/Kolkata'));
                                                 @endphp
                                                 <td>
-                                                    @if($isGone)
-                                                        <span class="badge bg-danger">Time Gone</span>
+                                                    @if($appointment->status == 'completed')
+                                                        <span class="badge bg-success" data-bs-toggle="tooltip" data-bs-original-title="Send Review">
+                                                            <a data-bs-toggle="modal" data-review-id="{{$appointment->id}}" href="#taskinfo"><em class="icon ni ni-comments"></em>
+                                                                Send Review
+                                                            </a>
+                                                        </span>
                                                     @else
-                                                        <span class="badge bg-success">Upcoming</span>
+                                                        @if($isGone)
+                                                            <span class="badge bg-danger">Time Gone</span>
+                                                        @else
+                                                            <span class="badge bg-success">Upcoming</span>
+                                                        @endif
                                                     @endif
                                                 </td>
 
                                                 <td>
                                                     @if($appointment->status == 'pending')
                                                         <span class="badge bg-warning">Pending</span>
-                                                    @elseif($appointment->status == 'confirmed')
+                                                    @elseif($appointment->status == 'completed')
                                                         <span class="badge bg-success">Confirmed</span>
                                                     @elseif($appointment->status == 'cancelled')
                                                         <span class="badge bg-danger">Cancelled</span>
@@ -135,32 +143,7 @@
                                                 </td>
                                             </tr>
                                         @endforelse
-                                                {{-- <td>
-                                                    <div class="hstack gap-2 justify-content-end">
-                                                        
-                                                        <div class="dropdown">
-                                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
-                                                                <i class="feather feather-more-horizontal"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="{{ route('seller.category.edit', $category->id) }}">
-                                                                        <i class="feather feather-edit-3 me-3"></i>
-                                                                        <span>Edit</span>
-                                                                    </a>
-                                                                </li>   
-                                                                <li>
-                                                                    <a class="dropdown-item" role="button" href="#">
-                                                                    <form method="POST" action="{{ route('seller.category.destroy', $category->id) }}">
-                                                                        @csrf @method('DELETE')
-                                                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</button>
-                                                                    </form>
-                                                                    </a>
-                                                                </li>                                                              
-                                                            </ul>
-                                                        </div> 
-                                                    </div>
-                                                </td> --}}
+                                                
                                         </tbody>
                                     </table>
                                 </div>                                                              
@@ -183,11 +166,11 @@
 
     $(document).ready(function() { 
         
-        $('[data-bs-id]').on('click',function(){
-            let Task = $(this).attr('data-bs-id');
+        $('[data-review-id]').on('click', function(){
+            let Task = $(this).attr('data-review-id');
             $('.informationbox').html('<div class="text-center">  <div class="spinner-border" role="status">    <span class="visually-hidden">Loading...</span>  </div></div>');
-            $('.informationbox').load("{{url('leads-comment-send')}}/"+Task);
-            $('.modal-title').text('Comments');
+            $('.informationbox').load("{{url('user/review/load')}}/"+Task);
+            $('.modal-title').text('Review Send');
         });
 
         $('.update-status').change(function() {

@@ -25,13 +25,15 @@
                     </a>
                 </div>
                 <!--! [End] nxl-navigation-toggle !-->
+                
                 <!--! [Start] nxl-lavel-mega-menu-toggle !-->
-                <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
+                {{-- <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
                     <a href="javascript:void(0);" id="nxl-lavel-mega-menu-open">
                         <i class="feather-align-left"></i>
                     </a>
-                </div>
+                </div> --}}
                 <!--! [End] nxl-lavel-mega-menu-toggle !-->
+
                 <!--! [Start] nxl-lavel-mega-menu !-->
                 <div class="nxl-drp-link nxl-lavel-mega-menu">
                     <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
@@ -138,28 +140,8 @@
                             <div id="notification-list">
                                 <!-- AJAX DATA LOAD HERE -->
                             </div>
-                        
+                                             
                             {{-- <div class="notifications-item">
-                                <img src="{{ asset('assets/images/avatar/2.png')}}" alt="" class="rounded me-3 border" />
-                                <div class="notifications-desc">
-                                    <a href="javascript:void(0);" class="font-body text-truncate-2-line"> 
-                                        <span class="fw-semibold text-dark">Dilip, 9315209358</span> 
-                                        New Lead for you
-                                    </a>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="notifications-date text-muted border-bottom border-bottom-dashed">
-                                        25-4-25
-                                        </div>
-                                        <div class="d-flex align-items-center float-end gap-2">
-                                            <a href="javascript:void(0);" class="d-block wd-8 ht-8 rounded-circle bg-gray-300" data-bs-toggle="tooltip" title="Make as Read"></a>
-                                            <a href="javascript:void(0);" class="text-danger" data-bs-toggle="tooltip" title="Remove">
-                                                <i class="feather-x fs-12"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                        
-                            <div class="notifications-item">
                                 <img src="{{ asset('assets/images/avatar/2.png')}}" alt="" class="rounded me-3 border" />
                                 <div class="notifications-desc">
                                     <a href="javascript:void(0);" class="font-body text-truncate-2-line"> 

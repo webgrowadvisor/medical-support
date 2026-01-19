@@ -16,6 +16,7 @@ use App\Models\UserOtp;
 use App\Models\Prescription;
 use App\Models\Appointment;
 use App\Models\WalletTransaction;
+use App\Models\Review;
 
 class UserController extends Controller
 {
@@ -166,6 +167,40 @@ class UserController extends Controller
         $user->update($data);
 
         return redirect()->route('user.account.settings')->with('success_msg', 'Profile updated successfully');
+    }
+
+    public function review_load($id)
+    {
+        return view('front.box.review', compact('id'));
+    }
+
+    public function review_store(Request $request)
+    {
+        $request->validate([
+            'appointment_id' => 'required|exists:appointments,id',
+            'rating' => 'required|integer|min:1|max:5',
+            'review' => 'nullable|string'
+        ]);
+
+        $appointment = Appointment::where('id', $request->appointment_id)
+            ->where('user_id', auth()->id())
+            ->where('status', 'completed')
+            ->firstOrFail();
+
+        // Prevent duplicate review
+        if (Review::where('appointment_id', $appointment->id)->exists()) {
+            return back()->with('error_msg', 'Review already submitted');
+        }
+
+        Review::create([
+            'appointment_id' => $appointment->id,
+            'doctor_id' => $appointment->doctor_id,
+            'user_id' => auth()->id(),
+            'rating' => $request->rating,
+            'review' => $request->review,
+        ]);
+
+        return back()->with('success_msg', 'Thank you for your review!');
     }
 
 }

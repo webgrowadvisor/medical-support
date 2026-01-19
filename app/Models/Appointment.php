@@ -23,6 +23,10 @@ class Appointment extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function review() {
+        return $this->belongsTo(Review::class);
+    }
+
     public function doctor() {
         return $this->belongsTo(Seller::class, 'doctor_id');
     }

@@ -134,6 +134,9 @@ Route::middleware(['auth:seller'])->prefix('doctor')->group(function () {
     Route::get('/payouts/history', [DoctorPayoutController::class, 'payout_history'])->name('doctor.payout_history');
     Route::post('/payout-request', [DoctorPayoutController::class, 'request'])->name('doctor.payout.request');
 
+    Route::get('/reviews', [SellerController::class, 'doctorReviews'])->name('doctor.reviews');
+    Route::get('/review/load/{id}', [SellerController::class, 'review_load'])->name('doctor.review.load');
+    Route::post('/review/store', [SellerController::class, 'review_store'])->name('doctor.review.store');
 });
 
 // user patient
@@ -156,6 +159,9 @@ Route::middleware(['web', 'auth:web'])->prefix('user')->group(function () {
 
     Route::get('/prescriptions', [UserPrescription::class, 'index'])->name('user.prescriptions');
     Route::get('/prescription/{id}/pdf', [UserPrescription::class, 'pdf'])->name('user.prescription.pdf');
+
+    Route::get('/review/load/{id}', [UserController::class, 'review_load'])->name('user.review.load');
+    Route::post('/review/store', [UserController::class, 'review_store'])->name('user.review.store');
 
 });
 

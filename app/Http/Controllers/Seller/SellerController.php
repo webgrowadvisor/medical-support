@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Seller;
 use App\Models\User;
-use App\Models\Category;
+use App\Models\Review;
 use App\Models\Prescription;
 use App\Models\Appointment;
 use App\Models\DoctorPayout;
@@ -95,6 +95,41 @@ class SellerController extends Controller
         $seller->save();
 
         return redirect()->back()->with('success_msg', 'Account settings updated successfully.');
+    }
+
+
+    public function doctorReviews()
+    {
+        $reviews = Review::with(['user', 'appointment'])
+            ->where('doctor_id', auth('seller')->id())
+            ->latest()
+            ->paginate(10);
+
+        return view('seller.review.index', compact('reviews'));
+    }
+
+    public function review_load($id)
+    {
+        return view('seller.box.review', compact('id'));
+    }
+
+    public function review_store(Request $request)
+    {
+        $request->validate([
+            'reviewid' => 'required',
+            'review_rection' => 'nullable|string'
+        ]);
+
+        // Prevent duplicate review
+        // if (Review::where('id', $request->reviewid)->exists()) {
+        //     return back()->with('error_msg', 'Review already submitted');
+        // }
+
+        $review = Review::where('id', $request->reviewid)->firstOrFail();
+        $review->review_rection = $request->review_rection;
+        $review->save();
+
+        return back()->with('success_msg', 'Thank you for your review!');
     }
 
 }

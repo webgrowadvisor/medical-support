@@ -25,13 +25,15 @@
                     </a>
                 </div>
                 <!--! [End] nxl-navigation-toggle !-->
+                
                 <!--! [Start] nxl-lavel-mega-menu-toggle !-->
-                <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
+                {{-- <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
                     <a href="javascript:void(0);" id="nxl-lavel-mega-menu-open">
                         <i class="feather-align-left"></i>
                     </a>
-                </div>
+                </div> --}}
                 <!--! [End] nxl-lavel-mega-menu-toggle !-->
+
                 <!--! [Start] nxl-lavel-mega-menu !-->
                 <div class="nxl-drp-link nxl-lavel-mega-menu">
                     <div class="nxl-lavel-mega-menu-toggle d-flex d-lg-none">
@@ -158,10 +160,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
-
-                            {{-- <div class="text-center notifications-footer">
-                                <a href="javascript:void(0);" class="fs-13 fw-semibold text-dark">Alls Read</a>
                             </div> --}}
 
                         </div>
