@@ -11,7 +11,7 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Scheduling and Booking</h5>
+                        <h5 class="m-b-10">Scheduling Booking</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">Create</li>
@@ -56,13 +56,14 @@
                                 @if($slots->count())
                                 <div class="row mb-4">
                                     <div class="col-lg-12">
-                                        <h6 class="fw-bold mb-3">Doctor {{ $doctor->name }} Schedule</h6>
+                                        <h6 class="fw-bold mb-3">Dr. {{ $doctor->name }} Availability</h6>
 
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
                                                     <th>Day</th>
                                                     <th>Available Time</th>
+                                                    <th>Interval</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -73,6 +74,7 @@
                                                             -
                                                             {{ \Carbon\Carbon::parse($slot->end_time)->format('h:i A') }}
                                                         </td>
+                                                        <td>{{ $slot->interval }} minutes</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -142,31 +144,13 @@
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="feather-compass"></i></div>
                                             <input type="time" class="form-control" name="appointment_time" 
-                                            value="{{ old('appointment_time') }}" id="" placeholder="slug Name">                                            
+                                            value="{{ old('appointment_time') }}" id="" placeholder="slug Name">
                                         </div>
                                         @error('appointment_time') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
-
-                                {{-- <div class="row mb-4 align-items-center">
-                                    <div class="col-lg-4">
-                                        <label for="fullnameInput" class="fw-semibold">Main Category: <span class="text-danger"></span></label>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <select name="parent_id" class="form-control" data-select2-selector="status">
-                                                <option value=""> --- parent category ---</option>
-                                                
-                                            </select>                                            
-                                        </div>
-                                        @error('parent_id') 
-                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div> --}}
 
                                 <div class="row mb-4 align-items-right">
                                     <div class="col-lg-10"></div>

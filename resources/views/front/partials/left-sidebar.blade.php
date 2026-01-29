@@ -49,7 +49,9 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-calendar"></i></span>
+                            <span class="nxl-micon">
+                                <i class="fa-solid fa-prescription"></i>
+                            </span>
                             <span class="nxl-mtext">Prescriptions</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -64,7 +66,9 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-calendar"></i></span>
+                            <span class="nxl-micon">
+                                <i class="fa-solid fa-wallet"></i>
+                            </span>
                             <span class="nxl-mtext">Wallet</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -74,43 +78,34 @@
                         </ul>
                     </li>
 
-                    {{-- <li class="nxl-item nxl-caption">
-                        <label>Orders</label>
+                    
+                    <li class="nxl-item nxl-caption">
+                        <label>My Files</label>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-calendar"></i></span>
-                            <span class="nxl-mtext">Orders</span><span class="nxl-arrow">
-                                <i class="feather-chevron-right"></i>
-                            </span>
+                        <a href="{{ route('user.file.show') }}" class="nxl-link">
+                            <span class="nxl-micon"><i class="fa-regular fa-file"></i></span>
+                            <span class="nxl-mtext">My Files</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="{{ route('seller.orders.index') }}">All Orders</a></li>                            
-                        </ul>
-                    </li> --}}
-
-                    {{-- <li class="nxl-item nxl-caption">
-                        <label>DropService User</label>
+                    </li>
+                    
+                    <li class="nxl-item nxl-caption">
+                        <label>Announcement</label>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-calendar"></i></span>
-                            <span class="nxl-mtext">DropService</span><span class="nxl-arrow">
-                                <i class="feather-chevron-right"></i>
-                            </span>
+                        <a href="{{ route('user.announcement') }}" class="nxl-link">
+                            <span class="nxl-micon"><i class="fa-solid fa-bullhorn"></i></span>
+                            <span class="nxl-mtext">Announcement</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
-                        <ul class="nxl-submenu">
-                            <li class="nxl-item"><a class="nxl-link" href="{{ route('seller.dropclient') }}">Client List</a></li>                            
-                        </ul>
-                    </li> --}}
+                    </li>
                 
                     {{-- <li class="nxl-item nxl-hasmenu">
-                        <a href="#" class="nxl-link">
+                        <a href="{{ route('user.announcement') }}" class="nxl-link">
                             <span class="nxl-micon"><i class="feather-bell"></i></span>
                             <span class="badge bg-danger nxl-h-badge">0</span>
-                            <span class="nxl-mtext">Assign Leads</span><span class="nxl-arrow"></span>
+                            <span class="nxl-mtext">Announcement</span><span class="nxl-arrow"></span>
                         </a>                        
-                    </li>  --}}                                    
+                    </li>  --}}
 
                     <li class="nxl-item nxl-caption">
                         <label>Logout</label>

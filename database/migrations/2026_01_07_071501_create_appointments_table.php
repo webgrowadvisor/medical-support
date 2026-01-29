@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->date('appointment_date');
             $table->time('appointment_time');
+            $table->time('appointment_end');
             $table->enum('status', ['pending', 'confirmed', 'completed', 'cancelled'])->default('pending');
             $table->text('notes')->nullable();
             $table->text('other')->nullable();

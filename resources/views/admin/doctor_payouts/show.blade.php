@@ -84,7 +84,7 @@
                                                 </td>
                                                 <td>{{ $payout->doctor->name }}</td>
                                                 <td>{{ $payout->doctor->mobile }}</td>
-                                                <td>₹{{ $payout->amount }}</td>
+                                                <td>{{ priceicon() }}{{ $payout->amount }}</td>
                                                 <td>
                                                     <span class="badge bg-{{ 
                                                         $payout->status == 'approved' ? 'success' :

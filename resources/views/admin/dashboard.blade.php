@@ -305,7 +305,8 @@
                                                 <th>Doctor</th>
                                                 <th>Notes</th>
                                                 <th>Date</th>
-                                                <th>Time</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
                                                 <th>Appointment</th>
                                                 <th>Status</th>
                                                 <th class="text-end">Actions</th>
@@ -340,6 +341,7 @@
                                                 <td>{{ $appointment->notes ?? 'N/A' }}</td>
                                                 <td>{{ $appointment->appointment_date }}</td>
                                                 <td>{{ $appointment->appointment_time }}</td>
+                                                <td>{{ $appointment->appointment_end }}</td>
                                                 @php
                                                     $appointmentDateTime = Carbon\Carbon::createFromFormat(
                                                         'Y-m-d H:i:s',

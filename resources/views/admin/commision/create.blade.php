@@ -103,13 +103,13 @@
 
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
-                                        <label for="fullnameInput" class="fw-semibold">Commission (10 (%) OR 50 (₹)): <span class="text-danger">*</span></label>
+                                        <label for="fullnameInput" class="fw-semibold">Commission (10 (%) OR 50 ({{ priceicon() }})): <span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="feather-user"></i></div>
                                             <input type="text" class="form-control" name="commission_value" 
-                                            value="{{ old('commission_value', $plan->commission_value  ?? '') }}" id="" placeholder="Commission (10 (%) OR 50 (₹))">                                            
+                                            value="{{ old('commission_value', $plan->commission_value  ?? '') }}" id="" placeholder="Commission (10 (%) OR 50 ({{ priceicon() }}))">                                            
                                         </div>
                                         @error('commission_value') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>

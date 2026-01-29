@@ -62,8 +62,8 @@
                                                 <th>S.No.</th>
                                                 <th>Appointment</th>
                                                 <th>User</th>
-                                                <th>Comment</th>
-                                                <th>Reviews</th>
+                                                <th>Rating & Feedback</th>
+                                                <th>Reviews Rection</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -75,21 +75,35 @@
                                                 <td>
                                                     {{ $review->appointment->notes ?? 'N/A' }}<br/>
                                                     {{ $review->appointment->appointment_date ?? 'N/A' }} 
-                                                    {{ $review->appointment->appointment_time ?? 'N/A' }}
+                                                    {{ $review->appointment->appointment_time ?? 'N/A' }}- 
+                                                    {{ $review->appointment->appointment_end ?? 'N/A' }}
+
+                                                    </br>
+                                                    <select id="profile" class="form-control" data-bs-id="{{ $review->user->id }}" style="width: 170px; padding: 4px;" >
+                                                        <option value=""> More </option>
+                                                        <option value="View Patient Dashboard" >View Patient Dashboard</option>
+                                                        <option value="View Patient Available Medications" >View Patient Available Medications</option>
+                                                        <option value="View Patient Passed Visits" >View Patient Passed Visits</option>
+                                                        <option value="View Patient Files" >View Patient Files</option>
+                                                        <option value="View Patient Profile" >View Patient Profile</option>
+                                                    </select>
                                                 </td>
                                                 <td>{{ $review->user->name ?? 'N/A' }}</td>
                                                 <td>
-                                                    <strong>{{ $review->user->name ?? '-' }}</strong><br/>
                                                     <span>Rating: {{ $review->rating }}⭐</span>
                                                     <p>{{ $review->review }}</p>
                                                 </td>   
                                                 
                                                 <td>
-                                                    <span class="badge bg-success" data-bs-toggle="tooltip" data-bs-original-title="Review Rection">
-                                                        <a data-bs-toggle="modal" data-review-id="{{$review->id}}" href="#taskinfo">
-                                                            <em class="icon ni ni-comments"></em>Send Review Rection
-                                                        </a>
-                                                    </span>
+                                                    @if ($review->review_rection)
+                                                        {{ $review->review_rection }}
+                                                    @else
+                                                        <span class="badge bg-success" data-bs-toggle="tooltip" data-bs-original-title="Review Rection">
+                                                            <a data-bs-toggle="modal" data-review-id="{{$review->id}}" href="#taskinfo">
+                                                                <em class="icon ni ni-comments"></em>Send Review Rection
+                                                            </a>
+                                                        </span>                                                        
+                                                    @endif                                                    
                                                 </td>
                                             </tr>
                                          @endforeach
@@ -116,37 +130,39 @@
 
 @section('script')
 
-<script>        
+<script>
 
     $(document).ready(function() { 
         
-        $('[data-review-id]').on('click', function(){
-            let Task = $(this).attr('data-review-id');
+        $('[data-bs-id]').on('change',function(){
+            let Task = $(this).attr('data-bs-id');
+            let val = $(this).val();
+
+            $('#taskinfo').modal('show');
+
             $('.informationbox').html('<div class="text-center">  <div class="spinner-border" role="status">    <span class="visually-hidden">Loading...</span>  </div></div>');
-            $('.informationbox').load("{{url('doctor/review/load')}}/"+Task);
-            $('.modal-title').text('Review Rection');
+
+            if(val === 'View Patient Dashboard'){                
+                $('.informationbox').load("{{url('/doctor/dashboard/load')}}/"+Task);
+            }else if(val === 'View Patient Available Medications'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/medications/load')}}/"+Task);
+            }else if(val === 'View Patient Passed Visits'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/passed/load')}}/"+Task);
+            }
+            else if(val === 'View Patient Files'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/patientfiles/load')}}/"+Task);
+            }
+            else if(val === 'View Patient Profile'){
+                $('.informationbox').load("{{url('/doctor/profile/load')}}/"+Task);
+            }
+
+            $('.modal-title').text(val);
         });
 
-        $('.update-status').change(function() {
-            var leadId = $(this).attr('data-lead-id');
-            var status = $(this).val();
-            
-            $.ajax({
-                url: '/admin/category/' + leadId + '/update-status',
-                type: 'POST',
-                data: {
-                    _token: XCSRF_Token,
-                    status: status
-                },
-                success: function(response) {
-                    toastr.success(response.success_msg);
-                },
-                error: function(xhr) {
-                    console.log(xhr);
-                    alert('Error updating status. Please try again.');
-                }
-            });
-        });
+        
     });
 </script>
 

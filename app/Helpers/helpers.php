@@ -14,7 +14,7 @@ use App\Models\AdminNotification;
 
     function priceicon(): string
     {
-        return '₹';
+        return '$';
     }
 
     function projectName(): string
@@ -25,6 +25,11 @@ use App\Models\AdminNotification;
     function helplinenumber(): string
     {
         return '1800-0101-7890';
+    }
+
+    function commistion_charge(): string
+    {
+        return '10';
     }
 
     function userinfo()

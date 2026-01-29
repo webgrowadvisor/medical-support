@@ -1,4 +1,6 @@
-﻿<a href="{{ route('user.singup') }}" class="Offer-shop-btn hover-btn">Singup User</a>
+﻿
+    
+    <a href="{{ route('user.singup') }}" class="Offer-shop-btn hover-btn">Singup User</a>
 
 
  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"

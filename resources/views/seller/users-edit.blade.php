@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-image"></i></div>
                                             <input type="file" class="form-control" name="logo" >                                            
                                         </div>
                                         {!! variantImage($seller->logo, 60, 60) !!}
@@ -96,7 +96,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-certificate"></i></div>
                                             <input type="file" class="form-control" name="gst_image" >                                            
                                         </div>
                                         {!! variantImage($seller->gst_image, 60, 60) !!}
@@ -159,7 +159,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-certificate"></i></div>
                                             <input type="text" class="form-control" name="gst" 
                                             value="{{ old('gst', $seller->gst) }}" id="" placeholder="Certificate Number">                                            
                                         </div>
@@ -176,7 +176,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-calendar"></i></div>
+                                            <i class="fa-solid fa-link"></i></div>
                                             <input type="text" class="form-control" 
                                             id="" placeholder="slug" name="slug" value="{{ old('slug', $seller->slug) }}">                                            
                                         </div>
@@ -193,7 +193,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-calendar"></i></div>
+                                            <i class="fa-solid fa-user-doctor"></i></div>
                                             <input type="text" class="form-control" 
                                             placeholder="Specialization" name="specialization" value="{{ old('specialization', $seller->specialization) }}">                                            
                                         </div>
@@ -227,7 +227,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-calendar"></i></div>
+                                            <i class="fa-solid fa-address-book"></i></div>
                                             <input type="text" class="form-control" 
                                             placeholder="City, State, Country" name="address" value="{{ old('address', $seller->address) }}">                                            
                                         </div>

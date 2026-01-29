@@ -63,7 +63,8 @@
                                                 <th>Patient Name</th>
                                                 <th>Notes</th>
                                                 <th>Date</th>
-                                                <th>Time</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
                                                 <th>Prescriptions</th>
                                                 <th>Appointment</th>
                                                 <th>Status</th>
@@ -77,15 +78,25 @@
                                                 <td>
                                                 {{ ($appointments->currentPage() - 1) * $appointments->perPage() + $key + 1 }}
                                                 </td>
-                                                <td>{{ $appointment->user->name }}</td>
+                                                <td>
+                                                    {{ $appointment->user->name }}
+                                                    </br>
+                                                    <select id="profile" class="form-control w-2" data-bs-id="{{ $appointment->user->id }}" style="width: 150px; padding: 4px;" >
+                                                        <option value=""> More </option>
+                                                        <option value="View Patient Dashboard" >View Patient Dashboard</option>
+                                                        <option value="View Patient Available Medications" >View Patient Available Medications</option>
+                                                        <option value="View Patient Passed Visits" >View Patient Passed Visits</option>
+                                                        <option value="View Patient Files" >View Patient Files</option>
+                                                        <option value="View Patient Profile" >View Patient Profile</option>
+                                                    </select>
+                                                </td>
                                                 <td>{{ $appointment->notes ?? 'N/A' }}</td>
                                                 <td>{{ $appointment->appointment_date }}</td>
-                                                <td>{{ $appointment->appointment_time }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}</td>
                                                 <td>
-                                                    <a href="{{ route('doctor.prescription.create', $appointment->id) }}" class="btn btn-primary">
-                                                        ✍🏻 <span>Prescription</span>
-                                                    </a>
+                                                    {{ \Carbon\Carbon::parse($appointment->appointment_end)->format('h:i A') }}
                                                 </td>
+
                                                 @php
                                                     $appointmentDateTime = Carbon\Carbon::createFromFormat(
                                                         'Y-m-d H:i:s',
@@ -94,6 +105,23 @@
                                                     );
                                                     $isGone = $appointmentDateTime->lessThan(Carbon\Carbon::now('Asia/Kolkata'));
                                                 @endphp
+
+                                                <td>
+                                                    @if ($appointment->status === 'approved' && !$isGone)
+                                                        <a href="#" data-bs-toggle="tooltip" data-bs-original-title="Join Meeting" class="btn btn-primary">
+                                                            <span>Join Meeting</span>
+                                                        </a>
+                                                    @elseif($appointment->status === 'completed')
+                                                        <a href="{{ route('doctor.prescription.create', $appointment->id) }}" class="btn btn-primary">
+                                                            ✍🏻 <span>Prescription</span>
+                                                        </a>
+                                                    @else
+                                                        <a disable data-bs-toggle="tooltip" data-bs-original-title="Disable Join Meeting Buttion" class="btn btn-primary">
+                                                            <span>Join Meeting</span>
+                                                        </a>
+                                                    @endif
+                                                </td>
+                                                
                                                 <td>
                                                     @if($isGone)
                                                         ⏰<span class="badge bg-danger">Time Gone</span>
@@ -106,6 +134,7 @@
                                                         {{ ucfirst($appointment->status) }}
                                                     </span>
                                                 </td>
+                                                
                                                 <td> 
                                                     @if($appointment->status === 'pending' && !$isGone)
                                                     <form method="POST" action="{{ url('doctor/appointments/'.$appointment->id.'/status') }}">
@@ -135,32 +164,7 @@
                                             </tr>
                                         @endforelse
                                          
-                                                {{-- <td>
-                                                    <div class="hstack gap-2 justify-content-end">
-                                                        
-                                                        <div class="dropdown">
-                                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
-                                                                <i class="feather feather-more-horizontal"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="{{ route('seller.category.edit', $category->id) }}">
-                                                                        <i class="feather feather-edit-3 me-3"></i>
-                                                                        <span>Edit</span>
-                                                                    </a>
-                                                                </li>   
-                                                                <li>
-                                                                    <a class="dropdown-item" role="button" href="#">
-                                                                    <form method="POST" action="{{ route('seller.category.destroy', $category->id) }}">
-                                                                        @csrf @method('DELETE')
-                                                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</button>
-                                                                    </form>
-                                                                    </a>
-                                                                </li>                                                              
-                                                            </ul>
-                                                        </div> 
-                                                    </div>
-                                                </td> --}}                                            
+                                                                                         
                                         </tbody>
                                     </table>
                                 </div>                                                              
@@ -183,33 +187,35 @@
 
     $(document).ready(function() { 
         
-        $('[data-bs-id]').on('click',function(){
+        $('[data-bs-id]').on('change',function(){
             let Task = $(this).attr('data-bs-id');
+            let val = $(this).val();
+
+            $('#taskinfo').modal('show');
+
             $('.informationbox').html('<div class="text-center">  <div class="spinner-border" role="status">    <span class="visually-hidden">Loading...</span>  </div></div>');
-            $('.informationbox').load("{{url('leads-comment-send')}}/"+Task);
-            $('.modal-title').text('Comments');
+
+            if(val === 'View Patient Dashboard'){                
+                $('.informationbox').load("{{url('/doctor/dashboard/load')}}/"+Task);
+            }else if(val === 'View Patient Available Medications'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/medications/load')}}/"+Task);
+            }else if(val === 'View Patient Passed Visits'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/passed/load')}}/"+Task);
+            }
+            else if(val === 'View Patient Files'){
+                $('#taskinfo .modal-dialog').addClass('modal-lg');
+                $('.informationbox').load("{{url('/doctor/patientfiles/load')}}/"+Task);
+            }
+            else if(val === 'View Patient Profile'){
+                $('.informationbox').load("{{url('/doctor/profile/load')}}/"+Task);
+            }
+
+            $('.modal-title').text(val);
         });
 
-        $('.update-status').change(function() {
-            var leadId = $(this).attr('data-lead-id');
-            var status = $(this).val();
-            
-            $.ajax({
-                url: '/admin/category/' + leadId + '/update-status',
-                type: 'POST',
-                data: {
-                    _token: XCSRF_Token,
-                    status: status
-                },
-                success: function(response) {
-                    toastr.success(response.success_msg);
-                },
-                error: function(xhr) {
-                    console.log(xhr);
-                    alert('Error updating status. Please try again.');
-                }
-            });
-        });
+        
     });
 </script>
 

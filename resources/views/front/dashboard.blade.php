@@ -31,14 +31,16 @@
                                 <div class="d-flex align-items-start justify-content-between mb-4">
                                     <div class="d-flex gap-4 align-items-center">
                                         <div class="avatar-text avatar-lg bg-gray-200">
-                                            🗓️📋
+                                            <a href="{{ route('user.appointments') }}" class="">
+                                                🗓️📋
+                                            </a>
                                         </div>
                                         <div>
                                             <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $data['total_appoiniment'] }}</span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Total Appointment</h3>
                                         </div>
                                     </div>
-                                    <a href="javascript:void(0);" class="">
+                                    <a href="{{ route('user.appointments') }}" class="">
                                         <i class="feather-more-vertical"></i>
                                     </a>
                                 </div>
@@ -71,14 +73,16 @@
                                 <div class="d-flex align-items-start justify-content-between mb-4">
                                     <div class="d-flex gap-4 align-items-center">
                                         <div class="avatar-text avatar-lg bg-gray-200">
-                                            😷
+                                            <a href="{{ route('user.prescriptions') }}" class="">
+                                                😷
+                                            </a>
                                         </div>
                                         <div>
                                             <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $data['total_prescription'] }}</span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Total Prescription</h3>
                                         </div>
                                     </div>
-                                    <a href="javascript:void(0);" class="">
+                                    <a href="{{ route('user.prescriptions') }}" class="">
                                         <i class="feather-more-vertical"></i>
                                     </a>
                                 </div>
@@ -111,21 +115,23 @@
                                 <div class="d-flex align-items-start justify-content-between mb-4">
                                     <div class="d-flex gap-4 align-items-center">
                                         <div class="avatar-text avatar-lg bg-gray-200">
-                                            <i class="feather-briefcase"></i>
+                                            <a href="{{ route('user.wallet') }}" class="">
+                                                <i class="feather-briefcase"></i>
+                                            </a>
                                         </div>
                                         <div>
                                             <div class="fs-4 fw-bold text-dark"><span class="counter">{{ $data['walletTrans'] }}</span></div>
                                             <h3 class="fs-13 fw-semibold text-truncate-1-line">Wallet Transaction</h3>
                                         </div>
                                     </div>
-                                    <a href="javascript:void(0);" class="">
+                                    <a href="{{ route('user.wallet') }}" class="">
                                         <i class="feather-more-vertical"></i>
                                     </a>
                                 </div>
                                 <div class="pt-4">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <a href="javascript:void(0);"
-                                            class="fs-12 fw-medium text-muted text-truncate-1-line">Projects In Progress
+                                            class="fs-12 fw-medium text-muted text-truncate-1-line">Wallet Transaction
                                         </a>
                                         <div class="w-100 text-end">
                                             <span class="fs-12 text-dark">{{ $data['walletTrans'] }}</span>
@@ -145,78 +151,7 @@
                         </div>
                     </div>
                     <!-- [Projects In Progress] end -->
-                    
-                    <!-- [Mini] start -->
-                    {{-- <div class="col-lg-4">
-                        <div class="card mb-4 stretch stretch-full">
-                            <div class="card-header d-flex align-items-center justify-content-between">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <div class="avatar-text">
-                                        <i class="feather feather-star"></i>
-                                    </div>
-                                    <div>
-                                        <div class="fw-semibold text-dark">Tasks Completed</div>
-                                        <div class="fs-12 text-muted">22/35 completed</div>
-                                    </div>
-                                </div>
-                                <div class="fs-4 fw-bold text-dark">22/35</div>
-                            </div>
-                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <div id="task-completed-area-chart"></div>
-                                <div class="fs-12 text-muted text-nowrap">
-                                    <span class="fw-semibold text-primary">28% more</span><br />
-                                    <span>from last week</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card mb-4 stretch stretch-full">
-                            <div class="card-header d-flex align-items-center justify-content-between">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <div class="avatar-text">
-                                        <i class="feather feather-file-text"></i>
-                                    </div>
-                                    <div>
-                                        <div class="fw-semibold text-dark">New Tasks</div>
-                                        <div class="fs-12 text-muted">0/20 tasks</div>
-                                    </div>
-                                </div>
-                                <div class="fs-4 fw-bold text-dark">5/20</div>
-                            </div>
-                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <div id="new-tasks-area-chart"></div>
-                                <div class="fs-12 text-muted text-nowrap">
-                                    <span class="fw-semibold text-success">34% more</span><br />
-                                    <span>from last week</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="card mb-4 stretch stretch-full">
-                            <div class="card-header d-flex align-items-center justify-content-between">
-                                <div class="d-flex gap-3 align-items-center">
-                                    <div class="avatar-text">
-                                        <i class="feather feather-airplay"></i>
-                                    </div>
-                                    <div>
-                                        <div class="fw-semibold text-dark">Project Done</div>
-                                        <div class="fs-12 text-muted">20/30 project</div>
-                                    </div>
-                                </div>
-                                <div class="fs-4 fw-bold text-dark">20/30</div>
-                            </div>
-                            <div class="card-body d-flex align-items-center justify-content-between gap-4">
-                                <div id="project-done-area-chart"></div>
-                                <div class="fs-12 text-muted text-nowrap">
-                                    <span class="fw-semibold text-danger">42% more</span><br />
-                                    <span>from last week</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <!-- [Mini] end !-->
+                   
                     
                     <!-- [Latest Leads] start -->
                     {{-- <div class="col-xxl-12">

@@ -19,9 +19,16 @@ class BookingController extends Controller
 {
     
 
-    public function doctorList()
+    public function doctorList(Request $request)
     {
-        $doctors = Seller::where('status', 1)->paginate(10);
+        // $doctors = Seller::where('status', 1)->paginate(10);
+        $doctors = Seller::where('status', 1);
+
+        if ($request->filled('search')) {
+            $doctors->where('specialization', 'like', '%' . $request->search . '%');
+        }
+
+        $doctors = $doctors->paginate(10)->withQueryString();
         return view('front.doctors.show', compact('doctors'));
     }
 
@@ -66,6 +73,7 @@ class BookingController extends Controller
         if (!$shadule_created) {
             return back()->with('error_msg', 'Doctor schedule is not available at this time');
         }
+        
 
         // ✅ 1️⃣ Check Doctor Availability
         $availability = DoctorAvailability::where('doctor_id', $doctorId)
@@ -79,11 +87,18 @@ class BookingController extends Controller
             return back()->with('error_msg', 'Doctor is not available at this time');
         }
 
+        $endTime = Carbon::parse($time)->addMinutes($availability->interval)->format('H:i');
+
         // ✅ 2️⃣ Check Slot Already Booked
         $alreadyBooked = Appointment::where('doctor_id', $doctorId)
             ->where('appointment_date', $date)
-            ->where('appointment_time', $time)
+            // ->where('appointment_time', $time)
+            // ->where('appointment_end', '!>', $endTime)
             ->whereIn('status', ['pending', 'approved'])
+            ->where(function ($q) use ($time, $endTime) {
+                $q->where('appointment_time', '<', $endTime)
+                ->where('appointment_end', '>', $time);
+            })
             ->exists();
 
         if ($alreadyBooked) {
@@ -102,6 +117,7 @@ class BookingController extends Controller
             'doctor_id' => $doctorId,
             'appointment_date' => $date,
             'appointment_time' => $time,
+            'appointment_end' => $endTime,
             'notes' => $notes,
             'status' => 'pending',
         ]);
@@ -114,7 +130,7 @@ class BookingController extends Controller
 
         walletCredit('doctor', $doctorwalletid->wallet->id, $amount, 'Consultation Fee');
 
-        $comm = $amount / 10;
+        $comm = $amount / commistion_charge();
         walletDebit('doctor', $doctorwalletid->wallet->id, $comm, 'Portel Commission');
 
         notifyDoctor(
@@ -134,17 +150,31 @@ class BookingController extends Controller
             ->with('success_msg', 'Appointment booked successfully');
     }
 
-    public function myAppointments()
+    public function myAppointments(Request $request)
     {
-        $appointments = Appointment::where('user_id', auth()->id())->latest()->paginate(10);
+        // $appointments = Appointment::where('user_id', auth()->id())->latest()->paginate(10);
+
+        $appointments = Appointment::with(['user', 'doctor'])
+        ->where('user_id', auth()->id());
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $appointments->where(function($q) use ($search) {
+                $q->whereHas('user', function($u) use ($search) {
+                    $u->where('name', 'like', "%$search%")
+                    ->orWhere('mobile', 'like', "%$search%");
+                })
+                ->orWhereHas('doctor', function($d) use ($search) {
+                    $d->where('name', 'like', "%$search%");
+                })
+                ->orWhere('notes', 'like', "%$search%");
+            });
+        }
+
+        $appointments = $appointments->latest()->paginate(10);
+
         return view('front.doctors.appointments', compact('appointments'));
     }
-
-    // Refund
-    // walletCredit('user', $user->wallet->id, 500, 'Appointment Refund');
-    // walletDebit('doctor', $doctor->wallet->id, 400, 'Appointment Cancelled');
-
-    // ADMIN VIEW (Wallet History)
-    // WalletTransaction::latest()->paginate(20);
 
 }

@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-hourglass-start"></i></div>
                                             <input type="time" class="form-control" name="start_time" 
                                             value="{{ old('start_time') }}" id="start_time" placeholder="Start Time">                                            
                                         </div>
@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-hourglass-end"></i></div>
                                             <input type="time" class="form-control" name="end_time" 
                                             value="{{ old('end_time') }}" id="end_time" placeholder="End Time">
                                         </div>
@@ -110,11 +110,30 @@
 
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">Select Interval: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <select name="interval" class="form-control" data-select2-selector="interval">
+                                                <option value="10">10 minutes</option>
+                                                <option value="15">15 minutes</option>
+                                                <option value="30">30 minutes</option>
+                                            </select>
+                                        </div>
+                                        @error('interval') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
                                         <label for="fullnameInput" class="fw-semibold">Status: <span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-calendar"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-battery-empty"></i></div>
                                             <select name="status" class="form-control" data-select2-selector="status">
                                                 <option value="active">Active</option>
                                                 <option value="inactive">Inactive</option>

@@ -25,6 +25,14 @@
                         
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
 
+                            <div>
+                                <form method="GET" action="" >
+                                    <input type="search" name="search" class="from-control p-1 w-100" placeholder="Search by Name and Date"
+                                    onkeyup="this.form.submit()"
+                                    value="{{ request('search') }}" >
+                                </form>
+                            </div>
+
                             <div class="dropdown">
                                 <a class="btn btn-icon btn-light-brand" data-bs-toggle="dropdown" data-bs-offset="0, 10" data-bs-auto-close="outside"> <i class="feather-filter"></i>
                                 </a>
@@ -69,7 +77,8 @@
                                                 <th>Doctor Specialization</th>
                                                 <th>Notes</th>
                                                 <th>Date</th>
-                                                <th>Time</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
                                                 <th>Appointment</th>
                                                 <th>Status</th>
                                             </tr>
@@ -99,6 +108,9 @@
                                                 <td>
                                                     {{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}
                                                 </td>
+                                                <td>
+                                                    {{ \Carbon\Carbon::parse($appointment->appointment_end)->format('h:i A') }}
+                                                </td>
 
                                                 @php
                                                     $appointmentDateTime = Carbon\Carbon::createFromFormat(
@@ -110,11 +122,9 @@
                                                 @endphp
                                                 <td>
                                                     @if($appointment->status == 'completed')
-                                                        <span class="badge bg-success" data-bs-toggle="tooltip" data-bs-original-title="Send Review">
-                                                            <a data-bs-toggle="modal" data-review-id="{{$appointment->id}}" href="#taskinfo"><em class="icon ni ni-comments"></em>
-                                                                Send Review
-                                                            </a>
-                                                        </span>
+                                                        <a data-bs-toggle="modal" data-review-id="{{$appointment->id}}" href="#taskinfo" data-bs-toggle="tooltip" data-bs-original-title="Send Review" class="btn btn-primary p-2"><em class="icon ni ni-comments"></em>
+                                                            Send Review
+                                                        </a>
                                                     @else
                                                         @if($isGone)
                                                             <span class="badge bg-danger">Time Gone</span>
@@ -138,7 +148,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="5" class="text-center">
+                                                <td colspan="9" class="text-center">
                                                     No Appointments Found
                                                 </td>
                                             </tr>

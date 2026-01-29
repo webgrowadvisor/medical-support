@@ -63,7 +63,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::F8VJKjnkoTLutV9B',
+            '_route' => 'generated::MMTQG0zj5tpjH2DT',
           ),
           1 => NULL,
           2 => 
@@ -83,7 +83,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::rBHJAsH7m0ClmX4u',
+            '_route' => 'generated::4uaDJnAvJrYe3hE9',
           ),
           1 => NULL,
           2 => 
@@ -180,7 +180,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::GgOKc4VE0SgdD0dU',
+            '_route' => 'generated::J5tuuBaEL15Hn4YN',
           ),
           1 => NULL,
           2 => 
@@ -277,7 +277,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::hds3sXgPTZ7mhqyY',
+            '_route' => 'generated::5qjEtUw2aUPJ1VFc',
           ),
           1 => NULL,
           2 => 
@@ -297,7 +297,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SHDYgwKPsJoYYNnc',
+            '_route' => 'generated::SDwmxaXnAUiQlYmG',
           ),
           1 => NULL,
           2 => 
@@ -819,6 +819,118 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/admin/announcements' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/announcements/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/protocol' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/protocol/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/doctor/dashboard' => 
       array (
         0 => 
@@ -990,6 +1102,25 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/doctor/availability/update' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.availability.update',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/doctor/appointments' => 
       array (
         0 => 
@@ -1140,6 +1271,26 @@ app('router')->setCompiledRoutes(
           2 => 
           array (
             'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/doctor/protocol' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.protocol',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
           ),
           3 => NULL,
           4 => false,
@@ -1380,6 +1531,85 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/user/files' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.file.show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/user/files/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.file.add',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/user/files/upload' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.file.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/user/announcement' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.announcement',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/user/singup' => 
       array (
         0 => 
@@ -1537,7 +1767,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/livewire/preview\\-file/([^/]++)(*:39)|/doctor/(?|singup(?:/([^/]++))?(*:77)|re(?|gister(?:/([^/]++))?(*:109)|view/load/([^/]++)(*:135))|notification/read/([^/]++)(*:170)|a(?|vailability/([^/]++)/status(*:209)|ppointments/([^/]++)/status(*:244))|prescription/(?|create/([^/]++)(*:284)|([^/]++)/(?|pdf(*:307)|status(*:321))))|/user/(?|notification/read/([^/]++)(*:367)|doctor/([^/]++)/book(*:395)|prescription/([^/]++)/pdf(*:428)|review/load/([^/]++)(*:456))|/admin/(?|notification/read/([^/]++)(*:501)|user/([^/]++)(?|/(?|edit(*:533)|update\\-status(*:555))|(*:564))|s(?|e(?|rviceprovider/([^/]++)(?|/edit(*:611)|(*:619))|ller/([^/]++)/update\\-status(*:656))|ubscription\\-plans/([^/]++)/(?|edit(*:700)|update(*:714)))|d(?|rop/([^/]++)(?|/(?|edit(*:751)|update\\-status(*:773))|(*:782))|octor\\-payouts/([^/]++)/(?|approve(*:825)|reject(*:839)))|commission\\-plans/([^/]++)/(?|edit(*:883)|update(*:897))|appointments/([^/]++)/status(*:934)|prescription/([^/]++)/pdf(*:967)))/?$}sDu',
+      0 => '{^(?|/livewire/preview\\-file/([^/]++)(*:39)|/doctor/(?|singup(?:/([^/]++))?(*:77)|re(?|gister(?:/([^/]++))?(*:109)|view/load/([^/]++)(*:135))|notification/read/([^/]++)(*:170)|a(?|vailability/([^/]++)/status(*:209)|ppointments/([^/]++)/status(*:244))|edit\\-availability/([^/]++)(*:280)|d(?|elete\\-availability/([^/]++)(*:320)|ashboard/load/([^/]++)(*:350))|p(?|r(?|escription/(?|create/([^/]++)(*:396)|([^/]++)/(?|pdf(*:419)|status(*:433)))|o(?|file/load/([^/]++)(*:465)|tocol/load/([^/]++)(*:492)))|a(?|ssed/load/([^/]++)(*:524)|tientfiles/load/([^/]++)(*:556)))|medications/load/([^/]++)(*:591)|files/download/([^/]++)(*:622))|/user/(?|notification/read/([^/]++)(*:666)|doctor/([^/]++)/book(*:694)|prescription/([^/]++)/pdf(*:727)|review/load/([^/]++)(*:755)|files/download/([^/]++)(*:786)|announcement/load/([^/]++)(*:820))|/admin/(?|notification/read/([^/]++)(*:865)|user/([^/]++)(?|/(?|edit(*:897)|update\\-status(*:919))|(*:928))|s(?|e(?|rviceprovider/([^/]++)(?|/edit(*:975)|(*:983))|ller/([^/]++)/update\\-status(*:1020))|ubscription\\-plans/([^/]++)/(?|edit(*:1065)|update(*:1080)))|d(?|rop/([^/]++)(?|/(?|edit(*:1118)|update\\-status(*:1141))|(*:1151))|octor\\-payouts/([^/]++)/(?|approve(*:1195)|reject(*:1210)))|commission\\-plans/([^/]++)/(?|edit(*:1255)|update(*:1270))|a(?|ppointments/([^/]++)/status(*:1311)|nnouncement(?|s/([^/]++)(?|(*:1347)|/edit(*:1361)|(*:1370))|/load/([^/]++)(*:1394)))|pr(?|escription/([^/]++)/pdf(*:1433)|otocol/(?|([^/]++)(?|(*:1463)|/edit(*:1477)|(*:1486))|load/([^/]++)(*:1509)))))/?$}sDu',
     ),
     3 => 
     array (
@@ -1700,7 +1930,75 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      284 => 
+      280 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.edit.availability',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      320 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.destroy.availability',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      350 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.dashboard.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      396 => 
       array (
         0 => 
         array (
@@ -1723,7 +2021,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      307 => 
+      419 => 
       array (
         0 => 
         array (
@@ -1746,7 +2044,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      321 => 
+      433 => 
       array (
         0 => 
         array (
@@ -1768,7 +2066,145 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      367 => 
+      465 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.profile.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      492 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.protocol.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      524 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.passed.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      556 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.patientfiles.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      591 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.medications.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      622 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'doctor.file.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      666 => 
       array (
         0 => 
         array (
@@ -1790,7 +2226,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      395 => 
+      694 => 
       array (
         0 => 
         array (
@@ -1813,7 +2249,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      428 => 
+      727 => 
       array (
         0 => 
         array (
@@ -1836,7 +2272,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      456 => 
+      755 => 
       array (
         0 => 
         array (
@@ -1859,7 +2295,53 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      501 => 
+      786 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.file.view',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      820 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'user.announcement.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      865 => 
       array (
         0 => 
         array (
@@ -1881,7 +2363,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      533 => 
+      897 => 
       array (
         0 => 
         array (
@@ -1904,13 +2386,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      555 => 
+      919 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::GOgSgVOdkS09X66R',
+            '_route' => 'generated::f3PWqdLg8W7RmA9S',
           ),
           1 => 
           array (
@@ -1926,7 +2408,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      564 => 
+      928 => 
       array (
         0 => 
         array (
@@ -1948,7 +2430,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      611 => 
+      975 => 
       array (
         0 => 
         array (
@@ -1971,7 +2453,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      619 => 
+      983 => 
       array (
         0 => 
         array (
@@ -1993,13 +2475,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      656 => 
+      1020 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::y0eRaSSdJaujDfnB',
+            '_route' => 'generated::zmQt9nC8hTBJZyVy',
           ),
           1 => 
           array (
@@ -2015,7 +2497,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      700 => 
+      1065 => 
       array (
         0 => 
         array (
@@ -2038,7 +2520,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      714 => 
+      1080 => 
       array (
         0 => 
         array (
@@ -2060,7 +2542,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      751 => 
+      1118 => 
       array (
         0 => 
         array (
@@ -2083,13 +2565,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      773 => 
+      1141 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::frE1TB5ZUg1uqA5T',
+            '_route' => 'generated::ee3aAr56lJDChQrd',
           ),
           1 => 
           array (
@@ -2105,7 +2587,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      782 => 
+      1151 => 
       array (
         0 => 
         array (
@@ -2127,7 +2609,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      825 => 
+      1195 => 
       array (
         0 => 
         array (
@@ -2149,7 +2631,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      839 => 
+      1210 => 
       array (
         0 => 
         array (
@@ -2171,7 +2653,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      883 => 
+      1255 => 
       array (
         0 => 
         array (
@@ -2194,7 +2676,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      897 => 
+      1270 => 
       array (
         0 => 
         array (
@@ -2216,7 +2698,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      934 => 
+      1311 => 
       array (
         0 => 
         array (
@@ -2238,7 +2720,118 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      967 => 
+      1347 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.show',
+          ),
+          1 => 
+          array (
+            0 => 'announcement',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1361 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.edit',
+          ),
+          1 => 
+          array (
+            0 => 'announcement',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1370 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.update',
+          ),
+          1 => 
+          array (
+            0 => 'announcement',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'announcements.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'announcement',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1394 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.announcement.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1433 => 
       array (
         0 => 
         array (
@@ -2258,6 +2851,117 @@ app('router')->setCompiledRoutes(
           3 => NULL,
           4 => false,
           5 => false,
+          6 => NULL,
+        ),
+      ),
+      1463 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.show',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1477 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.edit',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      1486 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.update',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'protocol.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'protocol',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      1509 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.protocol.load',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
           6 => NULL,
         ),
         1 => 
@@ -2344,7 +3048,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::F8VJKjnkoTLutV9B' => 
+    'generated::MMTQG0zj5tpjH2DT' => 
     array (
       'methods' => 
       array (
@@ -2356,7 +3060,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
-        'as' => 'generated::F8VJKjnkoTLutV9B',
+        'as' => 'generated::MMTQG0zj5tpjH2DT',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2372,7 +3076,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::rBHJAsH7m0ClmX4u' => 
+    'generated::4uaDJnAvJrYe3hE9' => 
     array (
       'methods' => 
       array (
@@ -2384,7 +3088,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
-        'as' => 'generated::rBHJAsH7m0ClmX4u',
+        'as' => 'generated::4uaDJnAvJrYe3hE9',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2564,7 +3268,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::GgOKc4VE0SgdD0dU' => 
+    'generated::J5tuuBaEL15Hn4YN' => 
     array (
       'methods' => 
       array (
@@ -2584,7 +3288,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::GgOKc4VE0SgdD0dU',
+        'as' => 'generated::J5tuuBaEL15Hn4YN',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2614,7 +3318,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () { return \\view(\'admin.ad.login\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007100000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () { return \\view(\'admin.ad.login\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007180000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -2650,7 +3354,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {  return \\view(\'seller.ad.login\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007120000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:49:"function () {  return \\view(\'seller.ad.login\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000071a0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -2744,7 +3448,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::hds3sXgPTZ7mhqyY' => 
+    'generated::5qjEtUw2aUPJ1VFc' => 
     array (
       'methods' => 
       array (
@@ -2758,13 +3462,13 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'admin.ad.reg2\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007160000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'admin.ad.reg2\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000071e0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::hds3sXgPTZ7mhqyY',
+        'as' => 'generated::5qjEtUw2aUPJ1VFc',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2780,7 +3484,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SHDYgwKPsJoYYNnc' => 
+    'generated::SDwmxaXnAUiQlYmG' => 
     array (
       'methods' => 
       array (
@@ -2794,13 +3498,13 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {  return \\view(\'admin.ad.reg1\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007180000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function () {  return \\view(\'admin.ad.reg1\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007200000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::SHDYgwKPsJoYYNnc',
+        'as' => 'generated::SDwmxaXnAUiQlYmG',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2903,7 +3607,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:76:"function ($level = 1) { return \\view(\'seller.ad.reg1\', \\compact(\'level\')); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000071c0000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:76:"function ($level = 1) { return \\view(\'seller.ad.reg1\', \\compact(\'level\')); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007240000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -3816,7 +4520,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::GOgSgVOdkS09X66R' => 
+    'generated::f3PWqdLg8W7RmA9S' => 
     array (
       'methods' => 
       array (
@@ -3837,7 +4541,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::GOgSgVOdkS09X66R',
+        'as' => 'generated::f3PWqdLg8W7RmA9S',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3853,7 +4557,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::y0eRaSSdJaujDfnB' => 
+    'generated::zmQt9nC8hTBJZyVy' => 
     array (
       'methods' => 
       array (
@@ -3874,7 +4578,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::y0eRaSSdJaujDfnB',
+        'as' => 'generated::zmQt9nC8hTBJZyVy',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3890,7 +4594,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::frE1TB5ZUg1uqA5T' => 
+    'generated::ee3aAr56lJDChQrd' => 
     array (
       'methods' => 
       array (
@@ -3911,7 +4615,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::frE1TB5ZUg1uqA5T',
+        'as' => 'generated::ee3aAr56lJDChQrd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4604,6 +5308,610 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'announcements.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/announcements',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.index',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/announcements/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.create',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/announcements',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.store',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/announcements/{announcement}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.show',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@show',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/announcements/{announcement}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.edit',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/announcements/{announcement}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.update',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'announcements.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/announcements/{announcement}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'announcements.destroy',
+        'uses' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\AnnouncementController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.announcement.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/announcement/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\HomeController@announcement_load',
+        'controller' => 'App\\Http\\Controllers\\Admin\\HomeController@announcement_load',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.announcement.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/protocol',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.index',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@index',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@index',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/protocol/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.create',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@create',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@create',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/protocol',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.store',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@store',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@store',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/protocol/{protocol}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.show',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@show',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@show',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/protocol/{protocol}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.edit',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@edit',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@edit',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'admin/protocol/{protocol}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.update',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@update',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@update',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'protocol.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'admin/protocol/{protocol}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'as' => 'protocol.destroy',
+        'uses' => 'App\\Http\\Controllers\\Admin\\ProtocolController@destroy',
+        'controller' => 'App\\Http\\Controllers\\Admin\\ProtocolController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.protocol.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/protocol/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\HomeController@protocol_load',
+        'controller' => 'App\\Http\\Controllers\\Admin\\HomeController@protocol_load',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.protocol.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'seller.dashboard' => 
     array (
       'methods' => 
@@ -4965,6 +6273,118 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'doctor.availability.status',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.edit.availability' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/edit-availability/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@edit_availability',
+        'controller' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@edit_availability',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.edit.availability',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.destroy.availability' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'doctor/delete-availability/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@delete_availability',
+        'controller' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@delete_availability',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.destroy.availability',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.availability.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'doctor/availability/update',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@update_availability',
+        'controller' => 'App\\Http\\Controllers\\Seller\\DoctorScheduleController@update_availability',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.availability.update',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5454,6 +6874,310 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'doctor.review.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.dashboard.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/dashboard/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@dashboard_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@dashboard_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.dashboard.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.medications.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/medications/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@medications_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@medications_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.medications.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.passed.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/passed/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@passed_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@passed_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.passed.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.patientfiles.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/patientfiles/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@patientfiles_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@patientfiles_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.patientfiles.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.profile.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/profile/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@profile_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@profile_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.profile.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.file.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/files/download/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserFileController@download',
+        'controller' => 'App\\Http\\Controllers\\User\\UserFileController@download',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.file.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.protocol' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/protocol',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@announcement',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@announcement',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.protocol',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'doctor.protocol.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'doctor/protocol/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:seller',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Seller\\SellerController@announcement_load',
+        'controller' => 'App\\Http\\Controllers\\Seller\\SellerController@announcement_load',
+        'namespace' => NULL,
+        'prefix' => '/doctor',
+        'where' => 
+        array (
+        ),
+        'as' => 'doctor.protocol.load',
       ),
       'fallback' => false,
       'defaults' => 
@@ -6050,6 +7774,239 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'user.file.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user/files',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserFileController@index',
+        'controller' => 'App\\Http\\Controllers\\User\\UserFileController@index',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.file.show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'user.file.add' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user/files/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserFileController@add',
+        'controller' => 'App\\Http\\Controllers\\User\\UserFileController@add',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.file.add',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'user.file.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'user/files/upload',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserFileController@store',
+        'controller' => 'App\\Http\\Controllers\\User\\UserFileController@store',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.file.store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'user.file.view' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user/files/download/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserFileController@download',
+        'controller' => 'App\\Http\\Controllers\\User\\UserFileController@download',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.file.view',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'user.announcement' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user/announcement',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserController@announcement',
+        'controller' => 'App\\Http\\Controllers\\User\\UserController@announcement',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.announcement',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'user.announcement.load' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'user/announcement/load/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'web',
+          2 => 'auth:web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\User\\UserController@announcement_load',
+        'controller' => 'App\\Http\\Controllers\\User\\UserController@announcement_load',
+        'namespace' => NULL,
+        'prefix' => '/user',
+        'where' => 
+        array (
+        ),
+        'as' => 'user.announcement.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'user.singup' => 
     array (
       'methods' => 
@@ -6064,7 +8021,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_up\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007290000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_up\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007310000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -6209,7 +8166,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () { return \\view(\'front.forgot_password\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007760000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () { return \\view(\'front.forgot_password\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a470000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -6245,7 +8202,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_in\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000007780000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_in\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a490000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 

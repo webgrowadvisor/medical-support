@@ -15,6 +15,8 @@ use App\Models\AuditLog;
 use App\Models\Prescription;
 use App\Models\DoctorPayout;
 use App\Models\DoctorAvailability;
+use App\Models\Announcement;
+use App\Models\Protocl;
 
 class HomeController extends Controller
 {
@@ -133,8 +135,11 @@ class HomeController extends Controller
             'password' => 'nullable|min:6',
             'specialization' => 'required',
             'amount' => 'required',
-            'gst' => 'nullable',
-            'address' => 'nullable',
+            'gst' => 'required',
+            'address' => 'required',
+        ], [
+            'amount.required' => 'The service charge. field is required.',
+            'gst.required' => 'The certificate no. field is required.',
         ]);
 
         $seller->name = $validated['name'];
@@ -326,4 +331,16 @@ class HomeController extends Controller
         return $pdf->download('prescription-'.$id.'.pdf');
     }
 
+    public function announcement_load($id)
+    {
+        $announcement = Announcement::find($id);
+        return view('front.box.announcement', compact('announcement'));
+    }
+
+    public function protocol_load($id)
+    {
+        $announcement = Protocl::find($id);
+        return view('seller.box.protocal', compact('announcement'));
+    }
+    
 }

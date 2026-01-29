@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
 use App\Models\Seller;
 use App\Models\User;
+use App\Models\UserWallet;
+use App\Models\WalletTransaction;
 use App\Models\Review;
 use App\Models\Prescription;
 use App\Models\Appointment;
 use App\Models\DoctorPayout;
+use App\Models\UserFile;
 use Carbon\Carbon;
+use App\Models\Protocl;
 
 class SellerController extends Controller
 {
@@ -67,6 +71,11 @@ class SellerController extends Controller
             'logo'   => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'gst_image'   => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'address'   => 'nullable',
+        ], [
+            'amount.required' => 'The service charge. field is required.',
+            'gst.required' => 'The certificate no. field is required.',
+            'logo.mimes' => 'The Id image must be a file of type jpeg,png,jpg.',
+            'gst_image.mimes' => 'The certificate image must be a file of type jpeg,png,jpg.',
         ]);
 
         if ($request->hasFile('logo')) {
@@ -120,16 +129,72 @@ class SellerController extends Controller
             'review_rection' => 'nullable|string'
         ]);
 
-        // Prevent duplicate review
-        // if (Review::where('id', $request->reviewid)->exists()) {
-        //     return back()->with('error_msg', 'Review already submitted');
-        // }
-
         $review = Review::where('id', $request->reviewid)->firstOrFail();
         $review->review_rection = $request->review_rection;
         $review->save();
 
+        notifyUser(
+            $review->user_id,
+            'reaction',
+            'Review',
+            'Doctor reaction on your review'
+        );
+
         return back()->with('success_msg', 'Thank you for your review!');
+    }
+
+
+    public function dashboard_load($id)
+    {
+        $user = User::findOrFail($id);
+        $wallet = UserWallet::where('user_id',$id)->first();
+
+        $appointments = Appointment::where('user_id', $id);
+        $prescriptions = Prescription::where('user_id', $id);
+
+        $data = [
+            'total_appoiniment'   => $appointments->count(),
+            'cancel_appoiniment'  => $appointments->where('status','cancelled')->count(),
+            'total_prescription'  => $prescriptions->count(),
+            'cancel_prescription' => $prescriptions->where('status','active')->count()
+        ];
+
+        return view('seller.box.profile', compact('id','data','user'));
+    }
+
+    public function medications_load($id)
+    {
+        $prescriptions = Prescription::where('user_id', $id)
+            ->where('status', 'active')
+            ->latest()->paginate(20);
+        return view('seller.box.medicine', compact('id', 'prescriptions'));
+    }
+    public function passed_load($id)
+    {
+        $appointments = Appointment::where('user_id', $id)->where('doctor_id', auth('seller')->id())->latest()->paginate(20);
+        return view('seller.box.appo', compact('appointments'));
+    }
+    public function patientfiles_load($id)
+    {
+        $files = UserFile::where('user_id', $id)->latest()->paginate(20);
+        return view('seller.box.files', compact('files'));
+    }
+    public function profile_load($id)
+    {   
+        $user = User::findOrFail($id);
+        return view('seller.box.bio', compact('user'));
+    }
+
+    public function announcement()
+    {
+        $announcements = Protocl::latest()->paginate(10);
+        return view('seller.protocal.index', compact('announcements'));
+    }
+
+    public function announcement_load($id)
+    {
+        $announcement = Protocl::find($id);
+        return view('seller.box.protocal', compact('announcement'));
     }
 
 }

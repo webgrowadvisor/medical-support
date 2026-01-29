@@ -11,10 +11,10 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Category</h5>
+                        <h5 class="m-b-10">Doctor Availability</h5>
                     </div>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item">Edit</li>
+                        <li class="breadcrumb-item">Create</li>
                     </ul>
                 </div>
                 <div class="page-header-right ms-auto">
@@ -27,9 +27,9 @@
                         </div>
                         <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
                             
-                            <a href="#" class="btn btn-primary successAlertMessage">
+                            <a href="javascript:void(0);" class="btn btn-primary ">
                                 <i class="feather-user-plus me-2"></i>
-                                <span>category</span>
+                                <span>Create </span>
                             </a>
                         </div>
                     </div>
@@ -40,23 +40,90 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- [ page-header ] end -->
             <!-- [ Main Content ] start -->
-            <form action="{{ route('seller.category.update', $category->id) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('doctor.availability.update') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
+                <input type="hidden" name="avid" value="{{ $availability->id }}">
             <div class="main-content">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card stretch stretch-full">
 
-
                             <div class="card-body general-info">
                                 <div class="mb-5 d-flex align-items-center justify-content-between">
                                     <h5 class="fw-bold mb-0 me-4">
-                                        <span class="d-block mb-2">Category Info :</span>
-                                        <span class="fs-12 fw-normal text-muted text-truncate-1-line">General information for your Category</span>
-                                    </h5>
+                                        <span class="d-block mb-2">Doctor Availability :</span>
+                                    </h5>                                   
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">Day: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-calendar"></i></div>
+                                            <select name="available_date" class="form-control" data-select2-selector="status">
+                                                <option value="">Select Day</option>
+                                                @foreach(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] as $day)
+                                                    <option @if($availability->available_date == $day) {{ 'selected' }} @endif value="{{ $day }}">{{ $day }}</option>
+                                                @endforeach
+                                            </select>                                            
+                                        </div>
+                                        @error('available_date') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="start_time" class="fw-semibold">Start Time: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <input type="time" class="form-control" name="start_time" id="start_time" placeholder="Start Time" value="{{ old('start_time', \Carbon\Carbon::parse($availability->start_time)->format('H:i')) }}">                                            
+                                        </div>
+                                        @error('start_time') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="end_time" class="fw-semibold">End Time: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <input type="time" class="form-control" name="end_time" id="end_time" placeholder="End Time" value="{{ old('end_time', \Carbon\Carbon::parse($availability->end_time)->format('H:i')) }}">
+                                        </div>
+                                        @error('end_time') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">Select Interval: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-calendar"></i></div>
+                                            <select name="interval" class="form-control" data-select2-selector="interval">
+                                                <option @if($availability->interval == "10") {{ 'selected' }} @endif value="10">10 minutes</option>
+                                                <option @if($availability->interval == "15") {{ 'selected' }} @endif value="15">15 minutes</option>
+                                                <option @if($availability->interval == "30") {{ 'selected' }} @endif value="30">30 minutes</option>
+                                            </select>
+                                        </div>
+                                        @error('interval') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="row mb-4 align-items-center">
@@ -65,67 +132,13 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-calendar"></i></div>
                                             <select name="status" class="form-control" data-select2-selector="status">
-                                                <option {{ old('status', $category->status) == '1' ? 'selected' : '' }} value="1">Active</option>
-                                                <option {{ old('status', $category->status) == '0' ? 'selected' : '' }} value="0">Inactive</option>                                            
-                                            </select>                                             
+                                                <option @if($availability->interval == "active") {{ 'selected' }} @endif value="active">Active</option>
+                                                <option @if($availability->interval == "inactive") {{ 'selected' }} @endif value="inactive">Inactive</option>
+                                            </select>
                                         </div>
                                         @error('status') 
-                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row mb-4 align-items-center">
-                                    <div class="col-lg-4">
-                                        <label for="fullnameInput" class="fw-semibold">Category
-                                        Name: <span class="text-danger">*</span></label>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <input type="text" class="form-control" name="name" 
-                                            value="{{ old('name', $category->name) }}" id="fullnameInput" placeholder="Category Name">                                            
-                                        </div>
-                                        @error('name') 
-                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row mb-4 align-items-center">
-                                    <div class="col-lg-4">
-                                        <label for="fullnameInput" class="fw-semibold">Main Category: <span class="text-danger"></span></label>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <select name="parent_id" class="form-control" data-select2-selector="status">
-                                                <option value=""> --- parent category ---</option>
-                                                @foreach($categories as $cat)
-                                                <option value="{{ $cat->id }}" {{ $category->parent_id == $cat->id ? 'selected' : '' }}>
-                                                    {{ $cat->name }}
-                                                </option>
-                                                @endforeach
-                                            </select>                               
-                                        </div>
-                                        @error('parent_id') 
-                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row mb-4 align-items-center">
-                                    <div class="col-lg-4">
-                                        <label class="fw-semibold">Slug: </label>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-compass"></i></div>
-                                            <input type="text" class="form-control" name="slug" 
-                                            value="{{ old('slug', $category->slug) }}" id="" placeholder="slug Name">                                            
-                                        </div>
-                                        @error('slug') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -134,13 +147,11 @@
                                 <div class="row mb-4 align-items-right">
                                     <div class="col-lg-10"></div>
                                     <div class="col-lg-2">
-                                        <button type="submit" name="add_lead" class="submit-fix btn btn-primary" >Save Category</button>
+                                        <button type="submit" name="add_lead" class="submit-fix btn btn-primary" >Save Availability</button>
                                     </div>
                                 </div>
-
                             </form>
-                                    
-                               
+
                             </div>
                         </div>
                     </div>
@@ -153,5 +164,37 @@
 @endsection
 
 @section('script')
+
+<script>
+    
+
+    $(document).ready(function () {        
+
+        $('#interested_product').on('change', function () {
+            var productId = $(this).val();
+
+            if (productId) {
+                $.ajax({
+                    url: '/admin/get-product-details/' + productId,
+                    type: 'GET',
+                    success: function (response) {
+                        $('#product').text(response.produc_life);
+                        $('#quantity').text(response.quantity);
+                        $('#product_price').text(response.price);
+                        $('#product_description').text(response.description);
+                        $('#product_details').show();
+                        if(response.upsale == 'Yes'){
+                            $('#product_upsale').show();
+                        }else{
+                            $('#product_upsale').hide();
+                        }
+                    }
+                });
+            } else {
+                $('#product_details').hide();
+            }
+        });
+    });
+</script>
 
 @endsection

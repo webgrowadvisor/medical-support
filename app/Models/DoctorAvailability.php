@@ -15,6 +15,7 @@ class DoctorAvailability extends Model
         'start_time',
         'other',
         'status',
+        'interval',
         'end_time'
     ];
 

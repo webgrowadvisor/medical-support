@@ -71,21 +71,21 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="row mb-4 align-items-center">
+                                <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
-                                        <label for="logo" class="fw-semibold">Image: <span class="text-danger">*</span></label>
+                                        <label for="logo" class="fw-semibold">ID Image: <span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <input type="file" class="form-control" name="logo" >                                            
+                                            <div class="input-group-text"><i class="fa-solid fa-id-badge"></i></div>
+                                            <input type="file" class="form-control" name="image" >                                            
                                         </div>
-                                        {!! variantImage($user->logo, 60, 60) !!}
-                                        @error('logo') 
+                                        {!! variantImage($user->image, 60, 60) !!}
+                                        @error('image') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
@@ -134,21 +134,23 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="row mb-4 align-items-center">
+
+                                <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
-                                        <label for="fullnameInput" class="fw-semibold">Certificate Number: <span class="text-danger">*</span></label>
+                                        <label for="fullnameInput" class="fw-semibold">DOB: <span class="text-danger">*</span></label>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <input type="text" class="form-control" name="gst" 
-                                            value="{{ old('gst', $user->gst) }}" id="fullnameInput" placeholder="GST">                                            
+                                            <div class="input-group-text"><i class="fa-solid fa-calendar"></i></div>
+                                            <input type="date" class="form-control" name="dob" 
+                                            value="{{ old('dob', $user->dob) }}" id="" placeholder="DOB">                                            
                                         </div>
-                                        @error('gst') 
+                                        @error('dob') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
+
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
                                         <label for="" class="fw-semibold">Password: (Optional)<span class="text-danger"></span></label>
@@ -156,7 +158,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-link-2"></i></div>
+                                            <i class="fa-solid fa-key"></i></div>
                                             <input type="password" class="form-control" 
                                              placeholder="Password" name="password" value="{{ old('password') }}">                                            
                                         </div>
@@ -172,7 +174,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-link-2"></i></div>
+                                            <i class="fa-solid fa-key"></i></div>
                                             <input type="password" class="form-control" 
                                              placeholder="Confirm Password" name="password_confirmation" value="{{ old('password') }}">                                            
                                         </div>

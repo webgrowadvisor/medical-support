@@ -131,7 +131,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="fa-solid fa-dollar-sign"></i></div>
+                                            {{ priceicon() }}</div>
                                             <input type="number" class="form-control" 
                                             placeholder="Amount" name="amount" value="{{ old('amount', $user->amount) }}">                                            
                                         </div>

@@ -18,8 +18,8 @@ class PrescriptionController extends Controller
 {
     
     public function index()
-    {
-        $prescriptions = Prescription::where('user_id', auth()->id())
+    { 
+        $prescriptions = Prescription::with(['appointment', 'doctor'])->where('user_id', auth()->id())
             ->where('status', 'active')
             ->latest()->paginate(10);
 

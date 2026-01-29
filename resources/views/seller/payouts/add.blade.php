@@ -50,7 +50,7 @@
                                     <div class="card shadow-sm mb-4">
                                         <div class="card-body text-center">
                                             <h5 class="mb-2">Wallet Balance</h5>
-                                            <h2 class="text-success">₹ {{ number_format($wallet->balance ?? 0, 2) }}</h2>
+                                            <h2 class="text-success">{{ priceicon() }}{{ number_format($wallet->balance ?? 0, 2) }}</h2>
                                         </div>
                                     </div>
                                 </div>

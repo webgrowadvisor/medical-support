@@ -69,12 +69,14 @@
                                                 <th>Day</th>
                                                 <th>Start</th>
                                                 <th>End</th>
+                                                <th>Interval</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                        @forelse($availabilities ?? [] as $key => $availability)
+                                         @forelse($availabilities ?? [] as $key => $availability)
                                             <tr>
                                                 <td>
                                                 {{ ($availabilities->currentPage() - 1) * $availabilities->perPage() + $key + 1 }}
@@ -83,6 +85,7 @@
                                                 <td>{{ $availability->available_date }}</td>
                                                 <td>{{ $availability->start_time }}</td>
                                                 <td>{{ $availability->end_time }}</td>
+                                                <td>{{ $availability->interval }} min</td>
                                                 <td>
                                                     <div class="form-check form-switch">
                                                         <input class="form-check-input availability-status"
@@ -91,39 +94,28 @@
                                                             {{ $availability->status == 'active' ? 'checked' : '' }}>
                                                     </div>
                                                 </td>
+
+                                                <td>
+                                                    <a class="" href="{{ route('doctor.edit.availability', $availability->id) }}">
+                                                        <i class="feather feather-edit-3 me-3"></i>
+                                                         <span>Edit</span>
+                                                    </a>
+                                                                
+                                                    <a class="" role="button" href="#">
+                                                        <form method="POST" action="{{ route('doctor.destroy.availability', $availability->id) }}">
+                                                        @csrf @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</button>
+                                                        </form>
+                                                    </a>
+                                                </td>
+
                                             </tr>
-                                        @empty
+                                         @empty
                                             <tr>
                                                 <td colspan="5" class="text-center">No availability added</td>
                                             </tr>
-                                        @endforelse
+                                         @endforelse
                                          
-                                                {{-- <td>
-                                                    <div class="hstack gap-2 justify-content-end">
-                                                        
-                                                        <div class="dropdown">
-                                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
-                                                                <i class="feather feather-more-horizontal"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="{{ route('seller.category.edit', $category->id) }}">
-                                                                        <i class="feather feather-edit-3 me-3"></i>
-                                                                        <span>Edit</span>
-                                                                    </a>
-                                                                </li>   
-                                                                <li>
-                                                                    <a class="dropdown-item" role="button" href="#">
-                                                                    <form method="POST" action="{{ route('seller.category.destroy', $category->id) }}">
-                                                                        @csrf @method('DELETE')
-                                                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</button>
-                                                                    </form>
-                                                                    </a>
-                                                                </li>                                                              
-                                                            </ul>
-                                                        </div> 
-                                                    </div>
-                                                </td> --}}                                            
                                         </tbody>
                                     </table>
                                 </div>                                                              

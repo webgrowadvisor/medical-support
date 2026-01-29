@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('available_date');
             $table->time('start_time');
             $table->time('end_time');
+            $table->text('interval')->default(10);
             $table->text('other')->nullable();
             $table->timestamps();
 

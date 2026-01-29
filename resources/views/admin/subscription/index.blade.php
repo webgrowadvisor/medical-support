@@ -77,7 +77,7 @@
                                                 <tr>
                                                     <td>{{ $key+1 }}</td>
                                                     <td>{{ $plan->name }}</td>
-                                                    <td>₹{{ $plan->price }}</td>
+                                                    <td>{{ priceicon() }} {{ $plan->price }}</td>
                                                     <td>{{ $plan->duration_days }} Days</td>
                                                     <td>
                                                         <span class="badge bg-{{ $plan->status ? 'success' : 'danger' }}">

@@ -76,7 +76,12 @@
                                                 {{ ($prescriptions->currentPage() - 1) * $prescriptions->perPage() + $key + 1 }}
                                                 </td>
                                                 <td>{{ $availability->doctor->name }}</td>
-                                                <td>{{ $availability->appointment_id }}</td>
+                                                <td>
+                                                    {{ $availability->appointment->notes }}</br>
+                                                    {{ $availability->appointment->appointment_date }}</br>
+                                                    {{ $availability->appointment->appointment_time ?? ' - ' }} - 
+                                                    {{ $availability->appointment->appointment_end ?? ' - ' }}
+                                                </td>
                                                  <td>
                                                     @foreach ($availability->medicines as $key => $medicines)
                                                         @if(!empty($medicines))
@@ -104,7 +109,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="7" class="text-center">No availability added</td>
+                                                <td colspan="8" class="text-center">No availability added</td>
                                             </tr>
                                         @endforelse
                                          

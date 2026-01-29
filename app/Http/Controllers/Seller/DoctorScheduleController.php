@@ -18,7 +18,8 @@ class DoctorScheduleController extends Controller
     
     public function index()
     {
-        $availabilities = DoctorAvailability::where('doctor_id', auth('seller')->id())->paginate(10);
+        $availabilities = DoctorAvailability::where('doctor_id', auth('seller')->id())
+        ->orderBy('available_date', 'asc')->paginate(10);
         return view('seller.availabilities.show', compact('availabilities'));
     }
 
@@ -33,6 +34,7 @@ class DoctorScheduleController extends Controller
             'available_date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required|after:start_time',
+            'interval' => 'required',
         ]);
 
         $doctorId = auth('seller')->id();
@@ -59,6 +61,7 @@ class DoctorScheduleController extends Controller
             'available_date' => $request->available_date,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
+            'interval' => $request->interval,
             'status' => $request->status ?? 'active',
         ]);
 
@@ -87,13 +90,34 @@ class DoctorScheduleController extends Controller
         ]);
     }
 
-    public function appointments()
+    public function appointments(Request $request)
     {
+        // $appointments = Appointment::with(['user', 'doctor'])
+        // ->where('doctor_id', auth('seller')->id())->latest()
+        // ->paginate(10);
+
         $appointments = Appointment::with(['user', 'doctor'])
-        ->where('doctor_id', auth('seller')->id())->latest()
-        ->paginate(10);
+        ->where('doctor_id', auth('seller')->id());
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+
+            $appointments->where(function($q) use ($search) {
+                $q->whereHas('user', function($u) use ($search) {
+                    $u->where('name', 'like', "%$search%")
+                    ->orWhere('mobile', 'like', "%$search%");
+                })
+                ->orWhereHas('doctor', function($d) use ($search) {
+                    $d->where('name', 'like', "%$search%");
+                })
+                ->orWhere('notes', 'like', "%$search%");
+            });
+        }
+
+        $appointments = $appointments->latest()->paginate(10);
+
         return view('seller.appointments.show', compact('appointments'));
-    }
+    }    
 
     public function updateStatus(Request $request, $id)
     {
@@ -109,7 +133,7 @@ class DoctorScheduleController extends Controller
             $user = User::findOrFail($appointment->user_id);
 
             $amount = $doctor->amount;
-            $comm = $amount / 10;
+            $comm = $amount / commistion_charge();
             $doctor_refund = $amount - $comm;
             $user_refund = $amount;
             
@@ -140,6 +164,69 @@ class DoctorScheduleController extends Controller
         $appointment->update(['status' => $request->status]);
 
         return back()->with('success_msg', 'Status updated');
+    }
+
+    public function edit_availability($id)
+    {
+        $availability = DoctorAvailability::findOrFail($id);
+        return view('seller.availabilities.edit', compact('availability'));
+    }
+
+    public function delete_availability($id)
+    {
+        $availability = DoctorAvailability::findOrFail($id);
+        $availability->delete();
+
+        return back()->with('success_msg', 'Availability deleted Successfully');
+    }
+
+
+    public function update_availability(Request $request)
+    {
+        $request->validate([
+            'available_date' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required|after:start_time',
+            'interval' => 'required',
+        ]);
+
+        $doctorId = auth('seller')->id();
+
+        // 🔴 Duplicate Slot Check
+        $exists = DoctorAvailability::where('doctor_id', $doctorId)
+            ->where('id', '!=', $request->avid)
+            ->where('available_date', $request->available_date)
+            ->where(function ($q) use ($request) {
+                $q->whereBetween('start_time', [$request->start_time, $request->end_time])
+                ->orWhereBetween('end_time', [$request->start_time, $request->end_time])
+                ->orWhere(function ($q2) use ($request) {
+                    $q2->where('start_time', '<=', $request->start_time)
+                        ->where('end_time', '>=', $request->end_time);
+                });
+            })
+            ->exists();
+
+        if ($exists) {
+            return back()->with('error_msg', 'This time slot already exists');
+        }
+
+        $update = DoctorAvailability::find($request->avid);
+           $update->doctor_id = $doctorId;
+           $update->available_date = $request->available_date;
+           $update->start_time = $request->start_time;
+           $update->end_time = $request->end_time;
+           $update->interval = $request->interval;
+           $update->status = $request->status ?? 'active';
+           $update->save();
+        
+
+        notifyAdmin(
+            'Availability',
+            'Availability updated',
+            'Availability updated by doctor '.auth('seller')->name.'.'
+        );
+
+        return back()->with('success_msg', 'Availability updated Successfully');
     }
     
 }

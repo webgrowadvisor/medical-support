@@ -52,7 +52,7 @@
                                 <h4>My Wallet</h4>
 
                                 <h2 class="text-success">
-                                    ₹ {{ number_format($wallet->balance, 2) }}
+                                    {{ priceicon() }}{{ number_format($wallet->balance, 2) }}
                                 </h2>
 
                                 <form action="{{ route('user.wallet.add') }}" method="POST">

@@ -11,6 +11,8 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\SubscriptionPlanController;
 use App\Http\Controllers\Admin\CommisionController;
 use App\Http\Controllers\Admin\AdminDoctorPayoutController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\ProtocolController;
 
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\DoctorScheduleController;
@@ -22,6 +24,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\User\PrescriptionController as UserPrescription;
 use App\Http\Controllers\User\UserWalletController;
+use App\Http\Controllers\User\UserFileController;
 
 
 Route::post('/gst/fetch', [GstController::class, 'getGstDetails']);
@@ -103,6 +106,11 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::post('/doctor-payouts/{id}/approve', [AdminDoctorPayoutController::class, 'approve'])->name('admin.doctor.payout.approve');
     Route::post('/doctor-payouts/{id}/reject', [AdminDoctorPayoutController::class, 'reject'])->name('admin.doctor.payout.reject');
 
+    Route::resource('announcements', AnnouncementController::class);
+    Route::get('/announcement/load/{id}', [HomeController::class, 'announcement_load'])->name('admin.announcement.load');
+
+    Route::resource('protocol', ProtocolController::class);
+    Route::get('/protocol/load/{id}', [HomeController::class, 'protocol_load'])->name('admin.protocol.load');
 
 });
 
@@ -121,6 +129,10 @@ Route::middleware(['auth:seller'])->prefix('doctor')->group(function () {
     Route::get('/add-availability', [DoctorScheduleController::class, 'add_availability'])->name('doctor.add.availability');
     Route::post('/availability', [DoctorScheduleController::class, 'store'])->name('doctor.availability.store');
     Route::post('/availability/{id}/status', [DoctorScheduleController::class, 'updateAvailabilityStatus'])->name('doctor.availability.status');
+    Route::get('/edit-availability/{id}', [DoctorScheduleController::class, 'edit_availability'])->name('doctor.edit.availability');
+    Route::DELETE('/delete-availability/{id}', [DoctorScheduleController::class, 'delete_availability'])->name('doctor.destroy.availability');
+    Route::post('/availability/update', [DoctorScheduleController::class, 'update_availability'])->name('doctor.availability.update');
+
     Route::get('/appointments', [DoctorScheduleController::class, 'appointments'])->name('doctor.appointments');
     Route::post('/appointments/{id}/status', [DoctorScheduleController::class, 'updateStatus'])->name('doctor.appointments.status');
 
@@ -137,6 +149,18 @@ Route::middleware(['auth:seller'])->prefix('doctor')->group(function () {
     Route::get('/reviews', [SellerController::class, 'doctorReviews'])->name('doctor.reviews');
     Route::get('/review/load/{id}', [SellerController::class, 'review_load'])->name('doctor.review.load');
     Route::post('/review/store', [SellerController::class, 'review_store'])->name('doctor.review.store');
+
+    Route::get('/dashboard/load/{id}', [SellerController::class, 'dashboard_load'])->name('doctor.dashboard.load');
+    Route::get('/medications/load/{id}', [SellerController::class, 'medications_load'])->name('doctor.medications.load');
+    Route::get('/passed/load/{id}', [SellerController::class, 'passed_load'])->name('doctor.passed.load');
+    Route::get('/patientfiles/load/{id}', [SellerController::class, 'patientfiles_load'])->name('doctor.patientfiles.load');
+    Route::get('/profile/load/{id}', [SellerController::class, 'profile_load'])->name('doctor.profile.load');
+
+    Route::get('/files/download/{id}', [UserFileController::class, 'download'])->name('doctor.file.view');
+
+    Route::get('/protocol', [SellerController::class, 'announcement'])->name('doctor.protocol');
+    Route::get('/protocol/load/{id}', [SellerController::class, 'announcement_load'])->name('doctor.protocol.load');
+
 });
 
 // user patient
@@ -163,6 +187,14 @@ Route::middleware(['web', 'auth:web'])->prefix('user')->group(function () {
     Route::get('/review/load/{id}', [UserController::class, 'review_load'])->name('user.review.load');
     Route::post('/review/store', [UserController::class, 'review_store'])->name('user.review.store');
 
+    Route::get('/files', [UserFileController::class, 'index'])->name('user.file.show');
+    Route::get('/files/add', [UserFileController::class, 'add'])->name('user.file.add');
+    Route::post('/files/upload', [UserFileController::class, 'store'])->name('user.file.store');
+    Route::get('/files/download/{id}', [UserFileController::class, 'download'])->name('user.file.view');
+
+    Route::get('/announcement', [UserController::class, 'announcement'])->name('user.announcement');
+    Route::get('/announcement/load/{id}', [UserController::class, 'announcement_load'])->name('user.announcement.load');
+
 });
 
 
@@ -171,7 +203,7 @@ Route::post('/register/user', [UserController::class, 'register'])->name('user.r
 
 Route::get('/verify-otp', [UserController::class, 'otpForm'])->name('otp.verify.form');
 Route::post('/verify-otp', [UserController::class, 'verifyOtp'])->name('otp.verify');
-    
+
 Route::get('/password/forget', function () { return view('front.forgot_password'); })->name('user.forget');
 Route::get('/user', function () { return view('front.sign_in'); })->name('user.login');
 Route::post('/user/check', [AuthController::class, 'user_check'])->name('user.check');

@@ -133,6 +133,26 @@
                     </li>
 
                     <li class="nxl-item nxl-caption">
+                        <label>Announcements</label>
+                    </li>
+                    <li class="nxl-item nxl-hasmenu">
+                        <a href="{{ route('announcements.index') }}" class="nxl-link">
+                            <span class="nxl-micon">📢</span>
+                            <span class="nxl-mtext">Announcements</span><span class="nxl-arrow"></span>
+                        </a>                        
+                    </li>
+
+                    <li class="nxl-item nxl-caption">
+                        <label>Doctor Protocol</label>
+                    </li>
+                    <li class="nxl-item nxl-hasmenu">
+                        <a href="{{ route('protocol.index') }}" class="nxl-link">
+                            <span class="nxl-micon"><i class="fa-solid fa-user-doctor"></i></span>
+                            <span class="nxl-mtext">Doctor Protocol</span><span class="nxl-arrow"></span>
+                        </a>                        
+                    </li>
+
+                    <li class="nxl-item nxl-caption">
                         <label>Logout</label>
                     </li>
                     <li class="nxl-item nxl-hasmenu">

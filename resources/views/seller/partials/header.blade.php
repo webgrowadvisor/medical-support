@@ -43,7 +43,7 @@
                         </a>
                     </div>
                     <!--! [Start] nxl-lavel-mega-menu-wrapper !-->
-                    <div class="nxl-lavel-mega-menu-wrapper d-flex gap-3">
+                    {{-- <div class="nxl-lavel-mega-menu-wrapper d-flex gap-3">
                         <!--! [Start] nxl-lavel-menu !-->
                         <div class="dropdown nxl-h-item nxl-lavel-menu">
                             <a href="javascript:void(0);" class="avatar-text avatar-md bg-primary text-white" 
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <!--! [End] nxl-lavel-menu !-->                        
-                    </div>
+                    </div> --}}
                     <!--! [End] nxl-lavel-mega-menu-wrapper !-->
                 </div>
                 <!--! [End] nxl-lavel-mega-menu !-->

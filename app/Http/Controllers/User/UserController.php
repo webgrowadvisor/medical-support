@@ -17,6 +17,7 @@ use App\Models\Prescription;
 use App\Models\Appointment;
 use App\Models\WalletTransaction;
 use App\Models\Review;
+use App\Models\Announcement;
 
 class UserController extends Controller
 {
@@ -151,13 +152,23 @@ class UserController extends Controller
             'mobile' => 'required|string|max:15|unique:users,mobile,' . $user->id,
             'address'=> 'nullable|string|max:255',
             'password' => 'nullable|min:6|confirmed',
+            'image'   => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'dob'   => 'required|date',
+        ], [
+            'image.mimes' => 'The image must be a file of type jpeg,png,jpg.',
         ]);
 
         $data = [
             'name'    => $request->name,
             'mobile'  => $request->mobile,
             'address' => $request->address,
+            'dob' => $request->dob,
         ];
+
+        if ($request->hasFile('image')) {
+            $paths = uploadWebp($request->file('image'), 'user_image');
+            $data['image'] = $paths['webp'] ?? $paths['original'];
+        }
 
         // Update password only if filled
         if ($request->filled('password')) {
@@ -200,7 +211,27 @@ class UserController extends Controller
             'review' => $request->review,
         ]);
 
+        notifyDoctor(
+            $appointment->doctor_id,
+            'review',
+            'New Review',
+            'You have received a new review.'
+        );
+
         return back()->with('success_msg', 'Thank you for your review!');
+    }
+
+
+    public function announcement()
+    {
+        $announcements = Announcement::latest()->paginate(10);
+        return view('front.announcements.index', compact('announcements'));
+    }
+
+    public function announcement_load($id)
+    {
+        $announcement = Announcement::find($id);
+        return view('front.box.announcement', compact('announcement'));
     }
 
 }

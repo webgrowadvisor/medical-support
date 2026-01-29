@@ -72,7 +72,8 @@
                                                 <th>Doctor Name</th>
                                                 <th>Notes</th>
                                                 <th>Date</th>
-                                                <th>Time</th>
+                                                <th>Start Time</th>
+                                                <th>End Time</th>
                                                 <th>Appointments</th>
                                                 <th>Status</th>
                                                 <th>Action</th>
@@ -91,7 +92,8 @@
                                                     {{ $appointment->notes ?? 'N/A' }}
                                                 </td>
                                                 <td>{{ $appointment->appointment_date }}</td>
-                                                <td>{{ $appointment->appointment_time }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($appointment->appointment_time)->format('h:i A') }}</td>
+                                                <td>{{ \Carbon\Carbon::parse($appointment->appointment_end)->format('h:i A') }}</td>
                                                 @php
                                                     $appointmentDateTime = Carbon\Carbon::createFromFormat(
                                                         'Y-m-d H:i:s',
