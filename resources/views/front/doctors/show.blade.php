@@ -96,7 +96,7 @@
                                                 </td>
                                                 <td>
                                                     <a href="{{ route('user.book.form', $doctor->id) }}"
-                                                    class="btn btn-sm btn-primary">
+                                                    class="btn btn-sm btn-primary" style="width: 125px;" data-bs-toggle="tooltip" data-bs-original-title="Book Appointment">
                                                         Book Appointment
                                                     </a>
                                                 </td>
