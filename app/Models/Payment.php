@@ -22,5 +22,16 @@ class Payment extends Model
         'payment_method',
         'transaction_id'
     ];
+
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // 🔹 Doctor relation
+    public function doctor()
+    {
+        return $this->belongsTo(Seller::class, 'doctor_id');
+    }
     
 }

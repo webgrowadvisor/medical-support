@@ -15,6 +15,8 @@ use App\Models\AuditLog;
 use App\Models\Prescription;
 use App\Models\DoctorPayout;
 use App\Models\DoctorAvailability;
+use App\Models\WalletTransaction;
+use App\Models\Payment;
 use App\Models\Announcement;
 use App\Models\Protocl;
 
@@ -342,6 +344,18 @@ class HomeController extends Controller
     {
         $announcement = Protocl::find($id);
         return view('seller.box.protocal', compact('announcement'));
+    }
+
+    public function wallet_transtion()
+    {
+        $payments = WalletTransaction::with(['user', 'doctor'])->orderBy('id', 'desc')->paginate(20);
+        return view('admin.payments.index', compact('payments'));
+    }
+
+    public function payment_add()
+    {
+        $payments = Payment::with(['user', 'doctor'])->orderBy('id', 'desc')->paginate(20);
+        return view('admin.payments.payment', compact('payments'));
     }
     
 }

@@ -63,7 +63,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::MMTQG0zj5tpjH2DT',
+            '_route' => 'generated::Fe8425AApuqGxXGf',
           ),
           1 => NULL,
           2 => 
@@ -83,7 +83,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4uaDJnAvJrYe3hE9',
+            '_route' => 'generated::JElY2V52JxrArkOq',
           ),
           1 => NULL,
           2 => 
@@ -180,7 +180,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::J5tuuBaEL15Hn4YN',
+            '_route' => 'generated::CEsxo8C93v1ZbXEu',
           ),
           1 => NULL,
           2 => 
@@ -277,7 +277,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::5qjEtUw2aUPJ1VFc',
+            '_route' => 'generated::7SBACRBkDIYQCdcP',
           ),
           1 => NULL,
           2 => 
@@ -297,7 +297,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::SDwmxaXnAUiQlYmG',
+            '_route' => 'generated::AEjDnNf78l7kEB7Z',
           ),
           1 => NULL,
           2 => 
@@ -918,6 +918,46 @@ app('router')->setCompiledRoutes(
           0 => 
           array (
             '_route' => 'protocol.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/wallet-payments' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.wallet_tran',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/payments' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'admin.payments',
           ),
           1 => NULL,
           2 => 
@@ -2392,7 +2432,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::f3PWqdLg8W7RmA9S',
+            '_route' => 'generated::09GpBeQZrOa8ZGZn',
           ),
           1 => 
           array (
@@ -2481,7 +2521,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zmQt9nC8hTBJZyVy',
+            '_route' => 'generated::akaEdvnF2CGzu3Ll',
           ),
           1 => 
           array (
@@ -2571,7 +2611,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ee3aAr56lJDChQrd',
+            '_route' => 'generated::SHrz3Uxn3JFCzDEF',
           ),
           1 => 
           array (
@@ -3048,7 +3088,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::MMTQG0zj5tpjH2DT' => 
+    'generated::Fe8425AApuqGxXGf' => 
     array (
       'methods' => 
       array (
@@ -3060,7 +3100,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@returnJavaScriptAsFile',
-        'as' => 'generated::MMTQG0zj5tpjH2DT',
+        'as' => 'generated::Fe8425AApuqGxXGf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3076,7 +3116,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4uaDJnAvJrYe3hE9' => 
+    'generated::JElY2V52JxrArkOq' => 
     array (
       'methods' => 
       array (
@@ -3088,7 +3128,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
         'controller' => 'Livewire\\Mechanisms\\FrontendAssets\\FrontendAssets@maps',
-        'as' => 'generated::4uaDJnAvJrYe3hE9',
+        'as' => 'generated::JElY2V52JxrArkOq',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3268,7 +3308,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::J5tuuBaEL15Hn4YN' => 
+    'generated::CEsxo8C93v1ZbXEu' => 
     array (
       'methods' => 
       array (
@@ -3288,7 +3328,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::J5tuuBaEL15Hn4YN',
+        'as' => 'generated::CEsxo8C93v1ZbXEu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3448,7 +3488,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::5qjEtUw2aUPJ1VFc' => 
+    'generated::7SBACRBkDIYQCdcP' => 
     array (
       'methods' => 
       array (
@@ -3468,7 +3508,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::5qjEtUw2aUPJ1VFc',
+        'as' => 'generated::7SBACRBkDIYQCdcP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3484,7 +3524,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::SDwmxaXnAUiQlYmG' => 
+    'generated::AEjDnNf78l7kEB7Z' => 
     array (
       'methods' => 
       array (
@@ -3504,7 +3544,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::SDwmxaXnAUiQlYmG',
+        'as' => 'generated::AEjDnNf78l7kEB7Z',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4520,7 +4560,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::f3PWqdLg8W7RmA9S' => 
+    'generated::09GpBeQZrOa8ZGZn' => 
     array (
       'methods' => 
       array (
@@ -4541,7 +4581,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::f3PWqdLg8W7RmA9S',
+        'as' => 'generated::09GpBeQZrOa8ZGZn',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4557,7 +4597,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::zmQt9nC8hTBJZyVy' => 
+    'generated::akaEdvnF2CGzu3Ll' => 
     array (
       'methods' => 
       array (
@@ -4578,7 +4618,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::zmQt9nC8hTBJZyVy',
+        'as' => 'generated::akaEdvnF2CGzu3Ll',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4594,7 +4634,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ee3aAr56lJDChQrd' => 
+    'generated::SHrz3Uxn3JFCzDEF' => 
     array (
       'methods' => 
       array (
@@ -4615,7 +4655,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ee3aAr56lJDChQrd',
+        'as' => 'generated::SHrz3Uxn3JFCzDEF',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5897,6 +5937,82 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'admin.protocol.load',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.wallet_tran' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/wallet-payments',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\HomeController@wallet_transtion',
+        'controller' => 'App\\Http\\Controllers\\Admin\\HomeController@wallet_transtion',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.wallet_tran',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'admin.payments' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/payments',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\Admin\\HomeController@payment_add',
+        'controller' => 'App\\Http\\Controllers\\Admin\\HomeController@payment_add',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'admin.payments',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8166,7 +8282,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () { return \\view(\'front.forgot_password\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a470000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function () { return \\view(\'front.forgot_password\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a490000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -8202,7 +8318,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_in\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a490000000000000000";}}',
+        'uses' => 'O:55:"Laravel\\SerializableClosure\\UnsignedSerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () { return \\view(\'front.sign_in\'); }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"0000000000000a4b0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 

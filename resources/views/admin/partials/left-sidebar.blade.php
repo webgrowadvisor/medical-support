@@ -85,10 +85,21 @@
                         <label>Payments</label>
                     </li>
                     <li class="nxl-item nxl-hasmenu">
-                        <a href="#" class="nxl-link">
+                        
+                        <a href="javascript:void(0);" class="nxl-link">
                             <span class="nxl-micon"><i class="fa-brands fa-paypal"></i></span>
-                            <span class="nxl-mtext">Payments </span><span class="nxl-arrow"></span>
-                        </a>                        
+                            <span class="nxl-mtext">Payments</span><span class="nxl-arrow">
+                                <i class="feather-chevron-right"></i>
+                            </span>
+                        </a>
+                        <ul class="nxl-submenu">
+                            <li class="nxl-item">
+                                <a class="nxl-link" href="{{ route('admin.wallet_tran') }}">Wallet Translation</a>
+                            </li>
+                            <li class="nxl-item">
+                                <a class="nxl-link" href="{{ route('admin.payments') }}">Payments</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nxl-item nxl-caption">

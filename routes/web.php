@@ -112,6 +112,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('protocol', ProtocolController::class);
     Route::get('/protocol/load/{id}', [HomeController::class, 'protocol_load'])->name('admin.protocol.load');
 
+    Route::get('/wallet-payments', [HomeController::class, 'wallet_transtion'])->name('admin.wallet_tran');
+    Route::get('/payments', [HomeController::class, 'payment_add'])->name('admin.payments');
+
 });
 
 // doctor Routes

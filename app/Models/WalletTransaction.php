@@ -22,5 +22,28 @@ class WalletTransaction extends Model
     protected $casts = [
         'meta' => 'array'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'wallet_id');
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Seller::class, 'wallet_id');
+    }
+
+    public function getOwnerAttribute()
+    {
+        if ($this->wallet_type === 'user') {
+            return $this->belongsTo(User::class, 'wallet_id');
+        }
+
+        if ($this->wallet_type === 'doctor') {
+            return $this->belongsTo(Seller::class, 'wallet_id');
+        }
+
+        return null;
+    }
     
 }
