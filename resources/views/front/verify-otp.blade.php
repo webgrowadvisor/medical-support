@@ -18,7 +18,7 @@
                                         </div>                                        
                                         <div class="form-group pos_rel">
                                             <input id="password1" name="otp" type="password"
-                                                placeholder="OTP VERIFY" class="form-control lgn_input"
+                                                placeholder="OTP VERIFY" value="" class="form-control lgn_input"
                                                 required="">
                                             <i class="uil uil-shield-exclamation lgn_icon"></i>
                                             @error('otp')

@@ -21,6 +21,7 @@ use App\Models\Protocl;
 class HomeController extends Controller
 {
     public function index (){
+
         // dd(vars: admininfo()->name);
         $data = [
             'total_users'          => User::count(),

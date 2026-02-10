@@ -153,6 +153,21 @@
 
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
+                                        <label for="gst" class="fw-semibold">Address: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-address-book"></i></div>
+                                            <input type="text" class="form-control" name="address" value="{{ old('address', $user->address) }}" id="" placeholder="Address">                                            
+                                        </div>
+                                        @error('address') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
                                         <label for="" class="fw-semibold">Password: (Optional)<span class="text-danger"></span></label>
                                     </div>
                                     <div class="col-lg-8">

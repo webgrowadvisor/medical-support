@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="form-group pos_rel">
                                             <input id="password1" name="password" type="password"
-                                                placeholder="Create Password" class="form-control lgn_input"
+                                                placeholder="Create Password" value=""  class="form-control lgn_input"
                                                 required="">
                                             <i class="uil uil-padlock lgn_icon"></i>
                                             @error('password')

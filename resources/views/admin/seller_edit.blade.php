@@ -11,7 +11,7 @@
             <div class="page-header">
                 <div class="page-header-left d-flex align-items-center">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Seller/Employee</h5>
+                        <h5 class="m-b-10">Provider</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">Edit</li>
@@ -29,7 +29,7 @@
                             
                             <a href="#" class="btn btn-primary successAlertMessage">
                                 <i class="feather-user-plus me-2"></i>
-                                <span>Create Seller/Employee</span>
+                                <span>Provider/Employee</span>
                             </a>
                         </div>
                     </div>
@@ -53,12 +53,7 @@
                             <hr class="mt-0">
 
                             <div class="card-body general-info">
-                                <div class="mb-5 d-flex align-items-center justify-content-between">
-                                    <h5 class="fw-bold mb-0 me-4">
-                                        <span class="d-block mb-2">Basic Info :</span>
-                                    </h5>
-                                    <a href="javascript:void(0);" class="btn btn-sm btn-light-brand">Edit Seller</a>
-                                </div>
+                                
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
                                         <label for="fullnameInput" class="fw-semibold">Full
@@ -147,7 +142,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-arrow-down-1-9"></i></div>
                                             <input type="text" class="form-control" name="gst" 
                                             value="{{ old('gst', $user->gst) }}" id="" placeholder="Certificate Number">                                            
                                         </div>
@@ -162,7 +157,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="fa-solid fa-address-book"></i></div>
                                             <input type="text" class="form-control" name="address" 
                                             value="{{ old('address', $user->address) }}" id="" placeholder="Address">                                            
                                         </div>
@@ -177,7 +172,7 @@
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="input-group">
-                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <div class="input-group-text"><i class="feather-link-2"></i></div>
                                             <select name="status" class="form-control" data-select2-selector="status">
                                                 <option @if($user->status == '1') {{ 'selected' }} @endif value="1">Active</option>
                                                 <option @if($user->status == '0') {{ 'selected' }} @endif value="0">InActive</option>
@@ -195,7 +190,7 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text">
-                                            <i class="feather-link-2"></i></div>
+                                            <i class="fa-solid fa-key"></i></div>
                                             <input type="password" class="form-control" 
                                             id="" placeholder="Password" name="password" value="{{ old('password') }}">                                            
                                         </div>

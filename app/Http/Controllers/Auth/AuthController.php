@@ -24,13 +24,13 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::guard('web')->attempt(['mobile' => $request->mobile, 'password' => $request->password])) {
+        if (Auth::guard('web')->attempt(['mobile' => $request->mobile, 'password' => $request->password, 'status' => 1])) {
             auditLog('user', Auth::guard('web')->user()->id, 'login', [
                 'email' => Auth::guard('web')->user()->email,
                 'mobile' => Auth::guard('web')->user()->mobile
             ]);
             // Login successful
-            return redirect()->route('user.desh')->with('success_msg', value: 'Welcome '.Auth::guard('web')->user()->name);
+            return redirect()->route('user.desh')->with('success_msg', value: 'Welcome '. Auth::guard('web')->user()->name);
         }
 
         // Login failed
@@ -89,7 +89,12 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email', 'password');
+        // $credentials = $request->only('email', 'password');
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'status' => 1
+        ];
 
         if (Auth::guard('seller')->attempt($credentials)) {
 

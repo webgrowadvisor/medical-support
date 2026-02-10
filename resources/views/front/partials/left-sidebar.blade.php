@@ -23,7 +23,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('user.desh') }}" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-airplay"></i></span>
+                            <span class="nxl-micon"><i class="fa-solid fa-house"></i></span>
                             <span class="nxl-mtext">Dashboards</span><span class="nxl-arrow"></span>
                         </a>                        
                     </li>
@@ -33,7 +33,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-calendar"></i></span>
+                            <span class="nxl-micon"><i class="fa-solid fa-calendar"></i></span>
                             <span class="nxl-mtext">Scheduling and Booking</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -84,7 +84,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('user.file.show') }}" class="nxl-link">
-                            <span class="nxl-micon"><i class="fa-regular fa-file"></i></span>
+                            <span class="nxl-micon"><i class="fa-solid fa-file"></i></span>
                             <span class="nxl-mtext">My Files</span><span class="nxl-arrow"><i class="feather-chevron-right"></i></span>
                         </a>
                     </li>

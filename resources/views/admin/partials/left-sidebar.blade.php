@@ -19,7 +19,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('admin.dashboard') }}" class="nxl-link">
-                            <span class="nxl-micon"><i class="feather-airplay"></i></span>
+                            <span class="nxl-micon"><i class="fa-solid fa-house"></i></span>
                             <span class="nxl-mtext">Dashboard</span><span class="nxl-arrow"></span>
                         </a>                        
                     </li> 
@@ -29,7 +29,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon">🙍🏻‍♂️</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-user"></i></span>
                             <span class="nxl-mtext">Users</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -45,8 +45,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon">🗓️
-                                {{-- <i class="feather-calendar"></i> --}}
+                            <span class="nxl-micon"><i class="fa-solid fa-bag-shopping"></i>
                             </span>
                             <span class="nxl-mtext">Subscription</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
@@ -67,7 +66,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('admin.appointments') }}" class="nxl-link">
-                            <span class="nxl-micon">🗓</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-calendar"></i></span>
                             <span class="nxl-mtext">Doctor Appointments</span><span class="nxl-arrow"></span>
                         </a>                        
                     </li>
@@ -77,7 +76,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="#" class="nxl-link">
-                            <span class="nxl-micon">🗃️</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-cat"></i></span>
                             <span class="nxl-mtext">Service Catalog</span><span class="nxl-arrow"></span>
                         </a>                        
                     </li>
@@ -87,7 +86,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="#" class="nxl-link">
-                            <span class="nxl-micon">💳</span>
+                            <span class="nxl-micon"><i class="fa-brands fa-paypal"></i></span>
                             <span class="nxl-mtext">Payments </span><span class="nxl-arrow"></span>
                         </a>                        
                     </li>
@@ -97,7 +96,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon">📝</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-prescription"></i></span>
                             <span class="nxl-mtext">Prescriptions</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -112,7 +111,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="javascript:void(0);" class="nxl-link">
-                            <span class="nxl-micon">💵</span>
+                            <span class="nxl-micon"><i class="fa-brands fa-amazon-pay"></i></span>
                             <span class="nxl-mtext">Payouts</span><span class="nxl-arrow">
                                 <i class="feather-chevron-right"></i>
                             </span>
@@ -127,7 +126,7 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('admin.auditlogging') }}" class="nxl-link">
-                            <span class="nxl-micon">🖥️</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-computer"></i></span>
                             <span class="nxl-mtext">Auditlogging</span><span class="nxl-arrow"></span>
                         </a>                        
                     </li>
@@ -137,9 +136,9 @@
                     </li>
                     <li class="nxl-item nxl-hasmenu">
                         <a href="{{ route('announcements.index') }}" class="nxl-link">
-                            <span class="nxl-micon">📢</span>
+                            <span class="nxl-micon"><i class="fa-solid fa-bullhorn"></i></span>
                             <span class="nxl-mtext">Announcements</span><span class="nxl-arrow"></span>
-                        </a>                        
+                        </a>
                     </li>
 
                     <li class="nxl-item nxl-caption">
