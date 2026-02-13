@@ -77,8 +77,18 @@
                     <li class="nxl-item nxl-hasmenu">
                         <a href="#" class="nxl-link">
                             <span class="nxl-micon"><i class="fa-solid fa-cat"></i></span>
-                            <span class="nxl-mtext">Service Catalog</span><span class="nxl-arrow"></span>
-                        </a>                        
+                            <span class="nxl-mtext">Service Catalog</span><span class="nxl-arrow">
+                                <i class="feather-chevron-right"></i>
+                            </span>
+                        </a>
+                        <ul class="nxl-submenu">
+                            <li class="nxl-item">
+                                <a class="nxl-link" href="{{ route('service-categories.index') }}">Catalog</a>
+                            </li>
+                            <li class="nxl-item">
+                                <a class="nxl-link" href="{{ route('services.index') }}">Service</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="nxl-item nxl-caption">

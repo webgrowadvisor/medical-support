@@ -105,7 +105,7 @@
                                             <input type="time" class="form-control" name="end_time" 
                                             value="{{ old('end_time') }}" id="end_time" placeholder="End Time">
                                         </div>
-                                        @error('end_time') 
+                                        @error('end_time')
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>

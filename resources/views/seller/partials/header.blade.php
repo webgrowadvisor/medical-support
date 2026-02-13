@@ -187,7 +187,9 @@
                                 <div class="d-flex align-items-center">
                                     <img src="{{ asset('assets/images/avatar/1.png') }}" alt="user-image" class="img-fluid user-avtar" />
                                     <div>
-                                        <h6 class="text-dark mb-0">{{ sellerinfo()->name }} <span class="badge bg-soft-success text-success ms-1">PRO</span></h6>
+                                        <h6 class="text-dark mb-0">{{ sellerinfo()->name }} 
+                                            <span class="badge bg-soft-success text-success ms-1">PRO</span>
+                                        </h6>
                                         <span class="fs-12 fw-medium text-muted">{{sellerinfo()->email}}</span>
                                     </div>
                                 </div>

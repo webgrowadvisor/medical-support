@@ -27,6 +27,7 @@ class User extends Authenticatable
         'status',
         'address',
         'dob',
+        'other',
         'image',
     ];
 

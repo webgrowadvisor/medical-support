@@ -13,6 +13,8 @@ use App\Http\Controllers\Admin\CommisionController;
 use App\Http\Controllers\Admin\AdminDoctorPayoutController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\ProtocolController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
+use App\Http\Controllers\Admin\ServiceController;
 
 use App\Http\Controllers\Seller\SellerController;
 use App\Http\Controllers\Seller\DoctorScheduleController;
@@ -114,6 +116,9 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
 
     Route::get('/wallet-payments', [HomeController::class, 'wallet_transtion'])->name('admin.wallet_tran');
     Route::get('/payments', [HomeController::class, 'payment_add'])->name('admin.payments');
+
+    Route::resource('service-categories', ServiceCategoryController::class);
+    Route::resource('services', ServiceController::class);
 
 });
 

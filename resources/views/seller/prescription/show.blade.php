@@ -110,7 +110,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="7" class="text-center">No availability added</td>
+                                                <td colspan="8" class="text-center">No availability added</td>
                                             </tr>
                                         @endforelse
                                          
