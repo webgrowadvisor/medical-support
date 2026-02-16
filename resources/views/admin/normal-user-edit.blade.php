@@ -108,6 +108,21 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">DOB: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-calendar"></i></div>
+                                            <input type="date" class="form-control" name="dob" value="{{ old('dob', $user->dob) }}" placeholder="DOB">
+                                        </div>
+                                        @error('dob') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
@@ -116,14 +131,26 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="fa-solid fa-address-book"></i></div>
-                                            <input type="text" class="form-control" name="address" 
-                                            value="{{ old('address', $user->address) }}" id="" placeholder="Address">                                            
+                                            <textarea name="address" class="form-control" placeholder="Address">{{ old('address', $user->address) }}</textarea>                                       
                                         </div>
                                         @error('address') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="gst" class="fw-semibold">Other: <span class="text-danger"></span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-brands fa-font-awesome"></i></div>
+                                            <textarea name="other" id="" class="form-control" placeholder="Other Health Information... .">{{ old('other', $user->other) }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row mb-4 align-items-center">
                                     <div class="col-lg-4">
                                         <label class="form-label">Status<span class="text-danger">*</span></label>

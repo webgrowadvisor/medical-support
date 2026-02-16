@@ -136,36 +136,10 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="6" class="text-center">No appointments found</td>
+                                                <td colspan="10" class="text-center">No appointments found</td>
                                             </tr>
                                         @endforelse
-                                         
-                                                {{-- <td>
-                                                    <div class="hstack gap-2 justify-content-end">
-                                                        
-                                                        <div class="dropdown">
-                                                            <a href="javascript:void(0)" class="avatar-text avatar-md" data-bs-toggle="dropdown" data-bs-offset="0,21">
-                                                                <i class="feather feather-more-horizontal"></i>
-                                                            </a>
-                                                            <ul class="dropdown-menu">
-                                                                <li>
-                                                                    <a class="dropdown-item" href="{{ route('seller.category.edit', $category->id) }}">
-                                                                        <i class="feather feather-edit-3 me-3"></i>
-                                                                        <span>Edit</span>
-                                                                    </a>
-                                                                </li>   
-                                                                <li>
-                                                                    <a class="dropdown-item" role="button" href="#">
-                                                                    <form method="POST" action="{{ route('seller.category.destroy', $category->id) }}">
-                                                                        @csrf @method('DELETE')
-                                                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Delete?')">Delete</button>
-                                                                    </form>
-                                                                    </a>
-                                                                </li>                                                              
-                                                            </ul>
-                                                        </div> 
-                                                    </div>
-                                                </td> --}}                                            
+                                                                         
                                         </tbody>
                                     </table>
                                 </div>                                                              

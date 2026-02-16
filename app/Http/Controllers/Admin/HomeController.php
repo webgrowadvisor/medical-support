@@ -19,6 +19,8 @@ use App\Models\WalletTransaction;
 use App\Models\Payment;
 use App\Models\Announcement;
 use App\Models\Protocl;
+use App\Models\UserWallet;
+use App\Models\DoctorWallet;
 
 class HomeController extends Controller
 {
@@ -180,6 +182,8 @@ class HomeController extends Controller
             'status' => 'required|in:0,1',
             'password' => 'nullable|min:6',
             'address' => 'nullable',
+            'other' => 'nullable',
+            'dob'   => 'nullable|date',
         ]); 
 
         $user->name = $validated['name'];
@@ -187,6 +191,8 @@ class HomeController extends Controller
         $user->mobile = $validated['mobile'];
         $user->status = $validated['status'];
         $user->address = $validated['address'];
+        $user->dob = $validated['dob'];
+        $user->other = $validated['other'];
 
         if (!empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
@@ -358,4 +364,98 @@ class HomeController extends Controller
         return view('admin.payments.payment', compact('payments'));
     }
     
+    public function increment(Request $request)
+    {
+        return view('admin.my_wallet.create');
+    }
+
+    public function addMoney(Request $request)
+    {
+        $request->validate([
+            'type' => 'required',
+            'amount' => 'required|numeric|min:1',
+            'wallet_id' => 'required|numeric',
+            'reason' => 'required'
+        ]);
+
+        walletCredit(
+            $request->type,
+            $request->wallet_id,
+            $request->amount,
+            $request->reason,
+        );
+
+        return back()->with('success_msg', 'Money added to wallet');
+    }
+
+
+    public function decrement(Request $request)
+    {
+        return view('admin.my_wallet.edit');
+    }
+
+    public function decrementMoney(Request $request)
+    {
+        $request->validate([
+            'type' => 'required',
+            'amount' => 'required|numeric|min:1',
+            'wallet_id' => 'required|numeric',
+            'reason' => 'required'
+        ]);
+
+        walletDebit(
+            $request->type,
+            $request->wallet_id,
+            $request->amount,
+            $request->reason,
+        );
+
+        return back()->with('success_msg', 'Money decrement to wallet');
+    }
+
+    public function findWallet(Request $request)
+    {
+        $request->validate([
+            'type'   => 'required|in:user,doctor',
+            'mobile' => 'required|digits:10',
+        ]);
+
+        if ($request->type === 'user') {
+
+            $user = User::where('mobile', $request->mobile)->first();
+
+            if (!$user) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'User not found'
+                ]);
+            }
+
+            $wallet = UserWallet::where('user_id', $user->id)->first();
+
+        } else {
+
+            $doctor = Seller::where('mobile', $request->mobile)->first();
+
+            if (!$doctor) {
+                return response()->json([
+                    'status' => false,
+                    'message' => 'Doctor not found'
+                ]);
+            }
+
+            $wallet = DoctorWallet::where('doctor_id', $doctor->id)->first();
+        }
+
+        return response()->json([
+            'status' => true,
+            'data' => [
+                'name'    => $request->type === 'user' ? $user->name : $doctor->name,
+                'mobile'  => $request->mobile,
+                'wallet_id' => $wallet?->id,
+                'balance' => $wallet?->balance ?? 0,
+            ]
+        ]);
+    }
+
 }

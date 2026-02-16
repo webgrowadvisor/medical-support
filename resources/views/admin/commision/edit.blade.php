@@ -74,8 +74,16 @@
                                     <div class="col-lg-8">
                                         <div class="input-group">
                                             <div class="input-group-text"><i class="feather-user"></i></div>
-                                            <input type="text" class="form-control" name="specialization" 
-                                            value="{{ old('specialization', $plan->specialization ?? '') }}" id="fullnameInput" placeholder="Specialization Name">                                            
+                                            {{-- <input type="text" class="form-control" name="specialization" 
+                                            value="{{ old('specialization', $plan->specialization ?? '') }}" id="fullnameInput" placeholder="Specialization Name"> --}}
+                                            <select name="specialization" class="form-control" required>
+                                                <option value="">-- Select Specialization --</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{ $category->name }}">
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         @error('specialization') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>

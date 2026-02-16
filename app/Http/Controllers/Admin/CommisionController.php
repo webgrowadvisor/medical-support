@@ -12,6 +12,7 @@ use App\Models\Admin;
 use App\Models\Seller;
 use App\Models\User;
 use App\Models\CommistionPlan;
+use App\Models\ServiceCategory;
 
 
 class CommisionController extends Controller
@@ -26,7 +27,8 @@ class CommisionController extends Controller
     public function create()
     {
         $plans = Seller::latest()->get();
-        return view('admin.commision.create', compact('plans'));
+        $categories = ServiceCategory::where('status',1)->get();
+        return view('admin.commision.create', compact('plans', 'categories'));
     }
 
     public function store(Request $request)
@@ -47,7 +49,8 @@ class CommisionController extends Controller
     public function edit($id)
     {
         $plan = CommistionPlan::findOrFail($id);
-        return view('admin.commision.edit', compact('plan'));
+        $categories = ServiceCategory::where('status',1)->get();
+        return view('admin.commision.edit', compact('plan', 'categories'));
     }
 
     public function update(Request $request, $id)

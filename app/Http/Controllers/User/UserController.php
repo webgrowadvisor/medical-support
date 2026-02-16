@@ -152,8 +152,9 @@ class UserController extends Controller
             'mobile' => 'required|string|max:15|unique:users,mobile,' . $user->id,
             'address'=> 'nullable|string|max:255',
             'password' => 'nullable|min:6|confirmed',
-            'image'   => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image'   => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'dob'   => 'required|date',
+            'other' => 'nullable',
         ], [
             'image.mimes' => 'The image must be a file of type jpeg,png,jpg.',
         ]);
@@ -163,6 +164,7 @@ class UserController extends Controller
             'mobile'  => $request->mobile,
             'address' => $request->address,
             'dob' => $request->dob,
+            'other' => $request->other,
         ];
 
         if ($request->hasFile('image')) {

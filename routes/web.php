@@ -120,6 +120,13 @@ Route::middleware(['auth:admin'])->prefix('admin')->group(function () {
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
 
+    Route::get('/increment', [HomeController::class, 'increment'])->name('admin.increment');
+    Route::post('/increment', [HomeController::class, 'addMoney'])->name('admin.add.increment');
+    Route::get('/decrement', [HomeController::class, 'decrement'])->name('admin.decrement');
+    Route::post('/decrement', [HomeController::class, 'decrementMoney'])->name('admin.money.decrement');
+
+    Route::post('/wallet/find', [HomeController::class, 'findWallet'])->name('wallet.find');
+
 });
 
 // doctor Routes

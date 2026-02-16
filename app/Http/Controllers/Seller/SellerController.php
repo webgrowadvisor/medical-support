@@ -18,6 +18,7 @@ use App\Models\DoctorPayout;
 use App\Models\UserFile;
 use Carbon\Carbon;
 use App\Models\Protocl;
+use App\Models\ServiceCategory;
 
 class SellerController extends Controller
 {
@@ -51,7 +52,8 @@ class SellerController extends Controller
     public function accountSettings()
     {
         $seller = Auth::guard('seller')->user();
-        return view('seller.users-edit', compact('seller'));
+        $categories = ServiceCategory::where('status',1)->get();
+        return view('seller.users-edit', compact('seller', 'categories'));
     }
 
     public function updateAccountSettings(Request $request)

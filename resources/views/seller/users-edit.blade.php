@@ -194,8 +194,16 @@
                                         <div class="input-group">
                                             <div class="input-group-text">
                                             <i class="fa-solid fa-user-doctor"></i></div>
-                                            <input type="text" class="form-control" 
-                                            placeholder="Specialization" name="specialization" value="{{ old('specialization', $seller->specialization) }}">                                            
+                                            {{-- <input type="text" class="form-control" 
+                                            placeholder="Specialization" name="specialization" value="{{ old('specialization', $seller->specialization) }}"> --}}
+                                            <select name="specialization" class="form-control" required>
+                                                <option value="">-- Select Specialization --</option>
+                                                @foreach($categories as $category)
+                                                    <option {{ old('specialization', $seller->specialization) === $category->name ? 'selected' : '' }} value="{{ $category->name }}">
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         @error('specialization') 
                                             <span class="text-danger text-xs mt-1">{{ $message }}</span>

@@ -28,7 +28,7 @@ class ServiceController extends Controller
     {
         $request->validate([
             'status'           => 'required|boolean',
-            'category_id'      => 'required|exists:service_categories,id',
+            'category_id'      => 'required|exists:service_categories,id|unique:services,category_id',
             'name'             => 'required|string|max:255',
             'description'      => 'required|string',
             'service_type'     => 'required|in:online,offline',
