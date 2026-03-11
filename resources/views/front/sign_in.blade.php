@@ -1,0 +1,67 @@
+﻿
+@include('front.layout.head')
+
+<body>
+    <div class="sign-inup">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="sign-form">
+                        <div class="sign-inner">
+                           
+                            <div class="form-dt">
+                                <div class="form-inpts checout-address-step">
+                                    <form action="{{route('user.check')}}" method="POST">
+                                        @csrf
+                                        <div class="form-title">
+                                            <h6>Sign In</h6>
+                                        </div>
+                                        <div class="form-group pos_rel">
+                                            <input id="" name="mobile" type="text"
+                                                placeholder="Enter Phone Number" class="form-control lgn_input"
+                                                required="">
+                                            <i class="uil uil-mobile-android-alt lgn_icon"></i>
+                                            @error('mobile')
+                                            <span class="text-danger small">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group pos_rel">
+                                            <input id="" name="password" type="password"
+                                                placeholder="Enter Password" class="form-control lgn_input" required="">
+                                            <i class="uil uil-padlock lgn_icon"></i>
+                                            @error('password')
+                                            <span class="text-danger small">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <button class="login-btn hover-btn" type="submit">Sign In Now</button>
+                                    </form>
+                                </div>
+                                <div class="password-forgor">
+                                    <a href="{{ route('user.forget') }}">Forgot Password?</a>
+                                </div>
+                                <div class="signup-link">
+                                    <p>Don't have an account? - <a href="{{ route('user.singup') }}">Sign Up Now</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright-text text-center mt-3">
+                        <i class="uil uil-copyright"></i>Copyright {{date('Y')}} <b>Telemedicine</b>. All rights reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('front/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('front/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('front/vendor/OwlCarousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('front/vendor/semantic/semantic.min.js') }}"></script>
+    <script src="{{ asset('front/js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ asset('front/js/custom.js') }}"></script>
+    <script src="{{ asset('front/js/product.thumbnail.slider.js') }}"></script>
+    <script src="{{ asset('front/js/offset_overlay.js') }}"></script>
+    <script src="{{ asset('front/js/night-mode.js') }}"></script>
+</body>
+
+</html>

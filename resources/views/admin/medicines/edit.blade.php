@@ -1,0 +1,202 @@
+@extends('admin.layout.main')
+
+@section('css')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
+@endsection
+
+@section('content')
+
+        <div class="nxl-content">
+            <!-- [ page-header ] start -->
+            <div class="page-header">
+                <div class="page-header-left d-flex align-items-center">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Edit Medication</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item">Edit</li>
+                    </ul>
+                </div>
+                <div class="page-header-right ms-auto">
+                    <div class="page-header-right-items">
+                        <div class="d-flex d-md-none">
+                            <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                                <i class="feather-arrow-left me-2"></i>
+                                <span>Back</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-md-none d-flex align-items-center">
+                        <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                            <i class="feather-align-right fs-20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- [ page-header ] end -->
+            <!-- [ Main Content ] start -->
+            <form action="{{ route('admin.medicines.update', $medicine->id) }}" method="post" enctype="multipart/form-data">
+                @csrf
+            <div class="main-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card stretch stretch-full">
+
+                            <div class="card-body general-info">
+                                
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">Status: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="feather-user"></i></div>
+                                            <select name="status" class="form-control" data-select2-selector="status">
+                                               <option value="1" {{ isset($medicine) && $medicine->status ? 'selected' : '' }}>Active</option>
+                                                <option value="0" {{ isset($medicine) && !$medicine->status ? 'selected' : '' }}>Inactive</option>                                           
+                                            </select>                                             
+                                        </div>
+                                        @error('status') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>                                
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="" class="fw-semibold">Category : <span class="text-danger"></span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-cart-shopping"></i></div>
+                                            <select name="category_id" class="form-control" >
+                                                <option value="">-- Select Category --</option>
+                                                @foreach($categories as $category)
+                                                    <option {{ $category->name == $medicine->other ? 'selected' : '' }} value="{{ $category->name }}">
+                                                        {{ $category->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        @error('category_id') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="gst_image" class="fw-semibold">Medication Image: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-certificate"></i></div>
+                                            <input type="file" class="form-control" name="image" >                                            
+                                        </div>
+                                        {!! variantImage($medicine->image, 60, 60) !!}
+                                        @error('image') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="fullnameInput" class="fw-semibold">Medication Name: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
+                                            <input type="text" class="form-control" name="name" 
+                                            value="{{ old('name', $medicine->name ?? '') }}" id="fullnameInput" placeholder="Medication Name">                                            
+                                        </div>
+                                        @error('name') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="description" class="fw-semibold">Medication Description: <span class="text-danger"></span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            {{-- <div class="input-group-text"><i class="fa-solid fa-file"></i></div> --}}
+                                            <textarea name="description" id="content" class="form-control" placeholder="Medication Description">{{ old('description', $medicine->description ?? '') }}</textarea>
+                                        </div>
+                                        @error('description') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="stock" class="fw-semibold">Stock: <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text"><i class="fa-solid fa-circle-half-stroke"></i></div>
+                                            <input type="number" class="form-control" name="stock" 
+                                            value="{{ old('stock', $medicine->stock ?? '') }}" id="stock" placeholder="Stock">
+                                        </div>
+                                        @error('stock') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4 align-items-center">
+                                    <div class="col-lg-4">
+                                        <label for="price" class="fw-semibold">Price ({{ priceicon() }}): <span class="text-danger">*</span></label>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                                            <div class="input-group-text">{{ priceicon() }}</div>
+                                            <input type="number" class="form-control" name="price" 
+                                            value="{{ old('price', $medicine->price ?? '') }}" id="price" placeholder="Price ({{ priceicon() }})">
+                                        </div>
+                                        @error('price') 
+                                            <span class="text-danger text-xs mt-1">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-4 align-items-right">
+                                    <div class="col-lg-10"></div>
+                                    <div class="col-lg-2">
+                                        <button type="submit" class="submit-fix btn btn-primary" >Save Medication</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+        <!-- [ Footer ] start -->
+
+      
+@endsection
+
+@section('script')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+
+        <script>
+        $('#content').summernote({
+            height: 300,
+            callbacks: {
+                onImageUpload: function(files) {
+                    // image upload via AJAX
+                }
+            }
+        });
+        </script>
+
+@endsection
