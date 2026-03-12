@@ -86,7 +86,7 @@ class BookingController extends Controller
             ]);
         }
 
-        // 🔹 Get DAY from selected date (Monday, Tuesday...)
+        // Get DAY from selected date (Monday, Tuesday...)
         $day = Carbon::parse($date)->format('l');
 
         // dd($day);
@@ -96,7 +96,7 @@ class BookingController extends Controller
         }
         
 
-        // ✅ 1️⃣ Check Doctor Availability
+        // Check Doctor Availability
         $availability = DoctorAvailability::where('doctor_id', $doctorId)
             ->where('available_date', $day)  // weekly availability
             ->where('status', 'active')
@@ -110,7 +110,7 @@ class BookingController extends Controller
 
         $endTime = Carbon::parse($time)->addMinutes($availability->interval)->format('H:i');
 
-        // ✅ 2️⃣ Check Slot Already Booked
+        // Check Slot Already Booked
         $alreadyBooked = Appointment::where('doctor_id', $doctorId)
             ->where('appointment_date', $date)
             // ->where('appointment_time', $time)
@@ -128,11 +128,11 @@ class BookingController extends Controller
 
         $doctor = Seller::findOrFail($doctorId);
         $wallet = UserWallet::where('user_id', auth()->id())->first();
-        if ($wallet->balance < $doctor->amount) {
+        if (!$wallet || $wallet->balance < $doctor->amount) {
             return back()->with('error_msg', 'Insufficient balance');
         }
 
-        // ✅ Create Appointment
+        // Create Appointment
         $booking = Appointment::create([
             'user_id' => auth()->id(),
             'doctor_id' => $doctorId,

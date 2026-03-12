@@ -41,8 +41,6 @@ class UserController extends Controller
         $apiKey = env('TWILIO_API_KEY');
         $apiSecret = env('TWILIO_API_SECRET');
 
-        
-
         $token = new AccessToken(
             $accountSid,
             $apiKey,
@@ -153,7 +151,7 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/user/dashboard-overview')->with('success_msg', 'Account verified successfully');
+        return redirect('/patient/dashboard-overview')->with('success_msg', 'Account verified successfully');
     }
 
     public function index()
@@ -174,11 +172,12 @@ class UserController extends Controller
             'cancel_prescription'        => Prescription::where('user_id', auth()->id())->where('status', 'active')->count(),
             'totaluser_trans'        => WalletTransaction::where('wallet_type', 'user')->count(),
         ];
+        
         if($wallet){
          $data['walletTrans'] = WalletTransaction::where('wallet_id', $wallet->id)->where('wallet_type', 'user')->count();
-         }else{
+        }else{
             $data['walletTrans'] = 0;
-         }
+        }
          
 
         return view('front.dashboard', compact('data'));

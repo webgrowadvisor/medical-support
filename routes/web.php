@@ -248,7 +248,7 @@ Route::middleware(['web', 'auth:web'])->prefix('patient')->group(function () {
         if(auth()->check()){
             return redirect('/patient/dashboard-overview');
         }
-        return view('front.sign_up'); 
+        return view('front.sign_up');
     })->name('user.singup');
     Route::post('/register/patient', [UserController::class, 'register'])->name('user.register');
 
